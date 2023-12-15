@@ -1,0 +1,115 @@
+name: 'Publish Allure report to Morph object storage'
+description: 'This action allows you to publish Allure reports to Morph object storage.'
+author: 'Morphbits'
+branding:
+  icon: 'server'
+  color: 'blue'
+inputs:
+  MORPH_USER_NAME:
+    description: Username for Morph object storage account
+    required: true
+  MORPH_USER_PASSWORD:
+    description: Password for Morph object storage account
+    required: true
+  MORPH_URL:
+    description: Morph object storage address
+    required: true
+  MORPH_PORT:
+    description: Morph object storage address
+    required: false
+    default: '9100'
+  ALLURE_REPORT_BUCKET_NAME:
+    description: Bucket name for your Allure report data
+    required: true
+  ALLURE_RESULTS_DIR:
+    description: Path to the directory where the Allure test report is stored
+    required: true
+  ALLURE_GENERATED_DIR:
+    description: Path to the directory that will be used to store the generated report
+    required: false
+    default: './morph-allure-generated-report'
+
+outputs:
+  ALLURE_REPORT_URL:
+    description: URL for the Allure report
+    value: ${{ steps.put_files.outputs.put_allure_report_to_morph_object_storage.allure_report_url }}
+
+runs:
+  using: composite
+  steps:
+    - name: Get the current date
+      id: date
+      shell: bash
+      run: |
+        echo "timestamp=$(date +%s)" >> $GITHUB_OUTPUT
+
+    - name: Install Allure
+      id: install_allure
+      shell: bash
+      run: |
+        wget -O allure-2.25.0.tgz https://repo.maven.apache.org/maven2/io/qameta/allure/allure-commandline/2.25.0/allure-commandline-2.25.0.tgz
+        tar -xvf allure-2.25.0.tgz
+        chmod -R +x allure-2.25.0/bin
+        echo "allure-2.25.0/bin" >> $GITHUB_PATH
+
+    - name: Set Allure report unique name
+      id: set_report_name
+      shell: bash
+      env:
+        TIMESTAMP: ${{ steps.date.outputs.timestamp }}
+      run: |
+        echo "REPORT_NAME=${GITHUB_WORKSPACE}/${{ github.run_number }}-$TIMESTAMP.html" >> $GITHUB_ENV
+
+    - name: Generate Allure report
+      id: allure-report
+      shell: bash
+      env:
+        ALLURE_RESULTS_DIR: ${{ inputs.ALLURE_RESULTS_DIR }}
+        ALLURE_GENERATED_DIR: ${{ inputs.ALLURE_GENERATED_DIR }}
+        allure_history: allure-history
+      run: |
+        allure generate --clean --single-file --report-dir "$ALLURE_GENERATED_DIR" "$ALLURE_RESULTS_DIR"
+
+    - name: Add read and write permission to the generated Allure report directory
+      shell: bash
+      env:
+        ALLURE_GENERATED_DIR: ${{ inputs.ALLURE_GENERATED_DIR }}
+      run: |
+        sudo chmod -R a+rw "$ALLURE_GENERATED_DIR"
+
+    - name: Rename index.html to unique name
+      shell: bash
+      env:
+        REPORT_NAME: ${{ env.REPORT_NAME }}
+        ALLURE_GENERATED_DIR: ${{ inputs.ALLURE_GENERATED_DIR }}
+      run: |
+        mv "$ALLURE_GENERATED_DIR"/index.html "$ALLURE_GENERATED_DIR/$REPORT_NAME"
+
+    - name: Prepare venv
+      shell: bash
+      id: prepare_venv
+      env:
+        GITHUB_ACTION_PATH: ${{ github.action_path }}
+      run: |
+        python3 -m venv "$GITHUB_ACTION_PATH/venv"
+        source "$GITHUB_ACTION_PATH/venv/bin/activate" && pip install -r "$GITHUB_ACTION_PATH/requirements.txt"
+
+    - name: Put Allure report to Morph
+      shell: bash
+      id: put_allure_report_to_morph_object_storage
+      env:
+        MORPH_USER_NAME: ${{ inputs.MORPH_USER_NAME }}
+        MORPH_USER_PASSWORD: ${{ inputs.MORPH_USER_PASSWORD }}
+        MORPH_URL: ${{ inputs.MORPH_URL }}
+        MORPH_PORT: ${{ inputs.MORPH_PORT }}
+        ALLURE_REPORT_BUCKET_NAME: ${{ inputs.ALLURE_REPORT_BUCKET_NAME }}
+        PATH_TO_FILES_DIR: ${{ env.PATH_TO_FILES_DIR }}
+        GITHUB_ACTION_PATH: ${{ github.action_path }}
+        REPORT_NAME: ${{ env.REPORT_NAME }}
+        ALLURE_GENERATED_DIR: ${{ inputs.ALLURE_GENERATED_DIR }}
+      run: |
+        source "$GITHUB_ACTION_PATH/venv/bin/activate" && MORPH_USER_PASSWORD=$MORPH_USER_PASSWORD python "$GITHUB_ACTION_PATH/push-to-morph.py" \
+        --username "$MORPH_USER_NAME" --url "$MORPH_URL" --port "$MORPH_PORT" --bucket "$ALLURE_REPORT_BUCKET_NAME" \
+        --report "$ALLURE_GENERATED_DIR/$REPORT_NAME"
+        REPORT_URL="https://$MORPH_URL/$ALLURE_REPORT_BUCKET_NAME/index.html"
+        echo "allure_report_url=$MORPH_URL:$MORPH_PORT/api/v0.7/buckets/$ALLURE_REPORT_BUCKET_NAME/objects/$REPORT_NAME/download" >> $GITHUB_OUTPUT
