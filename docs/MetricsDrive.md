@@ -3,6 +3,7 @@
 Drive metrics.
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **mount_point** | **str** | Mount point of the physical drive. | 

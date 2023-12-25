@@ -13,7 +13,7 @@ from openapi_client import SignedSessionToken, GetUserResponse, DefaultApi, Sess
 # Constants
 MORPH_USER_PASSWORD_ENV_NAME = "MORPH_USER_PASSWORD"
 PORT_9100 = 9100
-API_VERSION = "api/v0.7"
+API_VERSION = "api/v0.8"
 
 # Configure logging
 logging.basicConfig(level=logging.DEBUG, format='%(asctime)s - %(levelname)s - %(message)s')

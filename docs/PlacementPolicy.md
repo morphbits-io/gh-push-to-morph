@@ -3,6 +3,7 @@
 Set of rules to select a subset of nodes from `NetworkMap` able to store container's objects.
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **replicas** | [**List[Replica]**](Replica.md) | Rules to set number of object replicas and place each one into a named bucket. MUST NOT be empty. | 

@@ -2,6 +2,7 @@
 
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **role** | [**List[Role]**](Role.md) | Target subject&#39;s role class. | 

@@ -3,6 +3,7 @@
 The list of possible user roles.
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 
