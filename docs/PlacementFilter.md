@@ -2,6 +2,7 @@
 
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **name** | **str** | Name of the filter or a reference to a named filter. &#39;*&#39; means application to the whole unfiltered NetworkMap. At top level it&#39;s used as a filter name. At lower levels it&#39;s considered to be a reference to another named filter. | 

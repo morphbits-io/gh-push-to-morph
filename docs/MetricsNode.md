@@ -3,6 +3,7 @@
 Node metrics.
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **endpoint** | **str** | Network endpoint of the node server. | 

@@ -2,6 +2,7 @@
 
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **header_type** | [**List[HeaderType]**](HeaderType.md) | Define if Object or Request header will be used. | 

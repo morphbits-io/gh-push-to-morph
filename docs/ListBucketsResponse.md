@@ -2,9 +2,11 @@
 
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **buckets** | **List[str]** | Bucket names. | 
+**used_space** | **int** | Used space by user in bytes. | 
 
 ## Example
 

@@ -3,6 +3,7 @@
 The verb describes possible operations with object.
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 

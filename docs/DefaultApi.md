@@ -1,6 +1,6 @@
 # openapi_client.DefaultApi
 
-All URIs are relative to *http://localhost/api/v0.7*
+All URIs are relative to *http://localhost/api/v0.8*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -34,6 +34,7 @@ Create a new bucket.
 
 ### Example
 
+
 ```python
 import time
 import os
@@ -42,10 +43,10 @@ from openapi_client.models.create_bucket_request import CreateBucketRequest
 from openapi_client.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to http://localhost/api/v0.7
+# Defining the host is optional and defaults to http://localhost/api/v0.8
 # See configuration.py for a list of all supported configuration parameters.
 configuration = openapi_client.Configuration(
-    host = "http://localhost/api/v0.7"
+    host = "http://localhost/api/v0.8"
 )
 
 
@@ -68,6 +69,7 @@ with openapi_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **x_morph_public_key** | **str**| Account&#39;s public key, encoded in base64. | 
@@ -89,6 +91,7 @@ No authorization required
  - **Accept**: Not defined
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **201** | Bucket successfully created. |  -  |
@@ -107,6 +110,7 @@ Create a new object in the bucket.
 
 ### Example
 
+
 ```python
 import time
 import os
@@ -114,10 +118,10 @@ import openapi_client
 from openapi_client.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to http://localhost/api/v0.7
+# Defining the host is optional and defaults to http://localhost/api/v0.8
 # See configuration.py for a list of all supported configuration parameters.
 configuration = openapi_client.Configuration(
-    host = "http://localhost/api/v0.7"
+    host = "http://localhost/api/v0.8"
 )
 
 
@@ -141,6 +145,7 @@ with openapi_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **bucket** | **str**| Bucket name. | 
@@ -163,6 +168,7 @@ No authorization required
  - **Accept**: Not defined
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **201** | Object successfully created. |  -  |
@@ -183,6 +189,7 @@ Create session tokens for object operations.
 
 ### Example
 
+
 ```python
 import time
 import os
@@ -191,10 +198,10 @@ from openapi_client.models.session_token import SessionToken
 from openapi_client.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to http://localhost/api/v0.7
+# Defining the host is optional and defaults to http://localhost/api/v0.8
 # See configuration.py for a list of all supported configuration parameters.
 configuration = openapi_client.Configuration(
-    host = "http://localhost/api/v0.7"
+    host = "http://localhost/api/v0.8"
 )
 
 
@@ -217,6 +224,7 @@ with openapi_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **bucket** | **str**| Bucket name. | 
@@ -236,6 +244,7 @@ No authorization required
  - **Accept**: application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Session successfully created. |  -  |
@@ -251,6 +260,7 @@ Delete bucket from the system.
 
 ### Example
 
+
 ```python
 import time
 import os
@@ -258,10 +268,10 @@ import openapi_client
 from openapi_client.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to http://localhost/api/v0.7
+# Defining the host is optional and defaults to http://localhost/api/v0.8
 # See configuration.py for a list of all supported configuration parameters.
 configuration = openapi_client.Configuration(
-    host = "http://localhost/api/v0.7"
+    host = "http://localhost/api/v0.8"
 )
 
 
@@ -284,6 +294,7 @@ with openapi_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **bucket** | **str**| Bucket name. | 
@@ -305,6 +316,7 @@ No authorization required
  - **Accept**: Not defined
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Bucket successfully removed. |  -  |
@@ -322,6 +334,7 @@ Delete object from the bucket.
 
 ### Example
 
+
 ```python
 import time
 import os
@@ -329,10 +342,10 @@ import openapi_client
 from openapi_client.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to http://localhost/api/v0.7
+# Defining the host is optional and defaults to http://localhost/api/v0.8
 # See configuration.py for a list of all supported configuration parameters.
 configuration = openapi_client.Configuration(
-    host = "http://localhost/api/v0.7"
+    host = "http://localhost/api/v0.8"
 )
 
 
@@ -354,6 +367,7 @@ with openapi_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **bucket** | **str**| Bucket name. | 
@@ -374,6 +388,7 @@ No authorization required
  - **Accept**: Not defined
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Object successfully removed. |  -  |
@@ -384,13 +399,14 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **delete_user**
-> delete_user(user)
+> delete_user(user, x_morph_address, x_morph_payload_signature=x_morph_payload_signature)
 
 
 
 Delete a user.
 
 ### Example
+
 
 ```python
 import time
@@ -399,10 +415,10 @@ import openapi_client
 from openapi_client.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to http://localhost/api/v0.7
+# Defining the host is optional and defaults to http://localhost/api/v0.8
 # See configuration.py for a list of all supported configuration parameters.
 configuration = openapi_client.Configuration(
-    host = "http://localhost/api/v0.7"
+    host = "http://localhost/api/v0.8"
 )
 
 
@@ -411,9 +427,11 @@ with openapi_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = openapi_client.DefaultApi(api_client)
     user = 'mike, superkey or any users name.' # str | User name.
+    x_morph_address = 'NSqa4SBqn1h8KTkyVbTSASi3eaHCbEumLv.' # str | Account's address.
+    x_morph_payload_signature = 'x_morph_payload_signature_example' # str | Payload signature in base64. If passed, x-morph-payload will be used to execute request in NeoFS. (optional)
 
     try:
-        api_instance.delete_user(user)
+        api_instance.delete_user(user, x_morph_address, x_morph_payload_signature=x_morph_payload_signature)
     except Exception as e:
         print("Exception when calling DefaultApi->delete_user: %s\n" % e)
 ```
@@ -422,9 +440,12 @@ with openapi_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **user** | **str**| User name. | 
+ **x_morph_address** | **str**| Account&#39;s address. | 
+ **x_morph_payload_signature** | **str**| Payload signature in base64. If passed, x-morph-payload will be used to execute request in NeoFS. | [optional] 
 
 ### Return type
 
@@ -440,6 +461,7 @@ No authorization required
  - **Accept**: Not defined
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | User successfully deleted. |  -  |
@@ -457,6 +479,7 @@ Download the object data.
 
 ### Example
 
+
 ```python
 import time
 import os
@@ -464,10 +487,10 @@ import openapi_client
 from openapi_client.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to http://localhost/api/v0.7
+# Defining the host is optional and defaults to http://localhost/api/v0.8
 # See configuration.py for a list of all supported configuration parameters.
 configuration = openapi_client.Configuration(
-    host = "http://localhost/api/v0.7"
+    host = "http://localhost/api/v0.8"
 )
 
 
@@ -491,6 +514,7 @@ with openapi_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **bucket** | **str**| Bucket name. | 
@@ -511,6 +535,7 @@ No authorization required
  - **Accept**: application/octet-stream
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | OK |  -  |
@@ -529,6 +554,7 @@ Get information about the bucket by name.
 
 ### Example
 
+
 ```python
 import time
 import os
@@ -537,10 +563,10 @@ from openapi_client.models.get_bucket_response import GetBucketResponse
 from openapi_client.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to http://localhost/api/v0.7
+# Defining the host is optional and defaults to http://localhost/api/v0.8
 # See configuration.py for a list of all supported configuration parameters.
 configuration = openapi_client.Configuration(
-    host = "http://localhost/api/v0.7"
+    host = "http://localhost/api/v0.8"
 )
 
 
@@ -562,6 +588,7 @@ with openapi_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **bucket** | **str**| Bucket name. | 
@@ -580,6 +607,7 @@ No authorization required
  - **Accept**: application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | OK |  -  |
@@ -597,6 +625,7 @@ Scrape system metrics.
 
 ### Example
 
+
 ```python
 import time
 import os
@@ -605,10 +634,10 @@ from openapi_client.models.get_metrics_response import GetMetricsResponse
 from openapi_client.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to http://localhost/api/v0.7
+# Defining the host is optional and defaults to http://localhost/api/v0.8
 # See configuration.py for a list of all supported configuration parameters.
 configuration = openapi_client.Configuration(
-    host = "http://localhost/api/v0.7"
+    host = "http://localhost/api/v0.8"
 )
 
 
@@ -628,6 +657,7 @@ with openapi_client.ApiClient(configuration) as api_client:
 
 
 ### Parameters
+
 This endpoint does not need any parameter.
 
 ### Return type
@@ -644,6 +674,7 @@ No authorization required
  - **Accept**: application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | OK |  -  |
@@ -659,6 +690,7 @@ Get user or superkey file. File name must be without extension.
 
 ### Example
 
+
 ```python
 import time
 import os
@@ -667,10 +699,10 @@ from openapi_client.models.get_user_response import GetUserResponse
 from openapi_client.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to http://localhost/api/v0.7
+# Defining the host is optional and defaults to http://localhost/api/v0.8
 # See configuration.py for a list of all supported configuration parameters.
 configuration = openapi_client.Configuration(
-    host = "http://localhost/api/v0.7"
+    host = "http://localhost/api/v0.8"
 )
 
 
@@ -692,6 +724,7 @@ with openapi_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **user** | **str**| User name. | 
@@ -710,6 +743,7 @@ No authorization required
  - **Accept**: application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | User found. |  -  |
@@ -727,6 +761,7 @@ Get user key by owner address.
 
 ### Example
 
+
 ```python
 import time
 import os
@@ -735,10 +770,10 @@ from openapi_client.models.get_user_response import GetUserResponse
 from openapi_client.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to http://localhost/api/v0.7
+# Defining the host is optional and defaults to http://localhost/api/v0.8
 # See configuration.py for a list of all supported configuration parameters.
 configuration = openapi_client.Configuration(
-    host = "http://localhost/api/v0.7"
+    host = "http://localhost/api/v0.8"
 )
 
 
@@ -760,6 +795,7 @@ with openapi_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **address** | **str**| User address. | 
@@ -778,6 +814,7 @@ No authorization required
  - **Accept**: application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | User found. |  -  |
@@ -795,6 +832,7 @@ Get user list.
 
 ### Example
 
+
 ```python
 import time
 import os
@@ -803,10 +841,10 @@ from openapi_client.models.get_user_list_response import GetUserListResponse
 from openapi_client.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to http://localhost/api/v0.7
+# Defining the host is optional and defaults to http://localhost/api/v0.8
 # See configuration.py for a list of all supported configuration parameters.
 configuration = openapi_client.Configuration(
-    host = "http://localhost/api/v0.7"
+    host = "http://localhost/api/v0.8"
 )
 
 
@@ -826,6 +864,7 @@ with openapi_client.ApiClient(configuration) as api_client:
 
 
 ### Parameters
+
 This endpoint does not need any parameter.
 
 ### Return type
@@ -842,6 +881,7 @@ No authorization required
  - **Accept**: application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Full list of users in system. |  -  |
@@ -849,13 +889,14 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list_buckets**
-> ListBucketsResponse list_buckets()
+> ListBucketsResponse list_buckets(x_morph_public_key=x_morph_public_key)
 
 
 
 List all buckets in the system.
 
 ### Example
+
 
 ```python
 import time
@@ -865,10 +906,10 @@ from openapi_client.models.list_buckets_response import ListBucketsResponse
 from openapi_client.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to http://localhost/api/v0.7
+# Defining the host is optional and defaults to http://localhost/api/v0.8
 # See configuration.py for a list of all supported configuration parameters.
 configuration = openapi_client.Configuration(
-    host = "http://localhost/api/v0.7"
+    host = "http://localhost/api/v0.8"
 )
 
 
@@ -876,9 +917,10 @@ configuration = openapi_client.Configuration(
 with openapi_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = openapi_client.DefaultApi(api_client)
+    x_morph_public_key = 'x_morph_public_key_example' # str | Account's public key, encoded in base64. (optional)
 
     try:
-        api_response = api_instance.list_buckets()
+        api_response = api_instance.list_buckets(x_morph_public_key=x_morph_public_key)
         print("The response of DefaultApi->list_buckets:\n")
         pprint(api_response)
     except Exception as e:
@@ -888,7 +930,11 @@ with openapi_client.ApiClient(configuration) as api_client:
 
 
 ### Parameters
-This endpoint does not need any parameter.
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **x_morph_public_key** | **str**| Account&#39;s public key, encoded in base64. | [optional] 
 
 ### Return type
 
@@ -904,6 +950,7 @@ No authorization required
  - **Accept**: application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | OK |  -  |
@@ -919,6 +966,7 @@ List all objects in the bucket with brief metadata.
 
 ### Example
 
+
 ```python
 import time
 import os
@@ -927,10 +975,10 @@ from openapi_client.models.list_objects_response import ListObjectsResponse
 from openapi_client.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to http://localhost/api/v0.7
+# Defining the host is optional and defaults to http://localhost/api/v0.8
 # See configuration.py for a list of all supported configuration parameters.
 configuration = openapi_client.Configuration(
-    host = "http://localhost/api/v0.7"
+    host = "http://localhost/api/v0.8"
 )
 
 
@@ -953,6 +1001,7 @@ with openapi_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **bucket** | **str**| Bucket name. | 
@@ -972,6 +1021,7 @@ No authorization required
  - **Accept**: application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | OK |  -  |
@@ -990,6 +1040,7 @@ Get the object metadata.
 
 ### Example
 
+
 ```python
 import time
 import os
@@ -998,10 +1049,10 @@ from openapi_client.models.object_metadata_response import ObjectMetadataRespons
 from openapi_client.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to http://localhost/api/v0.7
+# Defining the host is optional and defaults to http://localhost/api/v0.8
 # See configuration.py for a list of all supported configuration parameters.
 configuration = openapi_client.Configuration(
-    host = "http://localhost/api/v0.7"
+    host = "http://localhost/api/v0.8"
 )
 
 
@@ -1025,6 +1076,7 @@ with openapi_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **bucket** | **str**| Bucket name. | 
@@ -1045,6 +1097,7 @@ No authorization required
  - **Accept**: application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | OK |  -  |
@@ -1055,13 +1108,14 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **save_user**
-> save_user(user, user_management_request=user_management_request)
+> save_user(x_morph_address, user, x_morph_payload_signature=x_morph_payload_signature, user_management_request=user_management_request)
 
 
 
 Register user or change user role.
 
 ### Example
+
 
 ```python
 import time
@@ -1071,10 +1125,10 @@ from openapi_client.models.user_management_request import UserManagementRequest
 from openapi_client.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to http://localhost/api/v0.7
+# Defining the host is optional and defaults to http://localhost/api/v0.8
 # See configuration.py for a list of all supported configuration parameters.
 configuration = openapi_client.Configuration(
-    host = "http://localhost/api/v0.7"
+    host = "http://localhost/api/v0.8"
 )
 
 
@@ -1082,11 +1136,13 @@ configuration = openapi_client.Configuration(
 with openapi_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = openapi_client.DefaultApi(api_client)
+    x_morph_address = 'NSqa4SBqn1h8KTkyVbTSASi3eaHCbEumLv.' # str | Account's address.
     user = 'mike, superkey or any users name.' # str | User name.
+    x_morph_payload_signature = 'x_morph_payload_signature_example' # str | Payload signature in base64. If passed, x-morph-payload will be used to execute request in NeoFS. (optional)
     user_management_request = openapi_client.UserManagementRequest() # UserManagementRequest |  (optional)
 
     try:
-        api_instance.save_user(user, user_management_request=user_management_request)
+        api_instance.save_user(x_morph_address, user, x_morph_payload_signature=x_morph_payload_signature, user_management_request=user_management_request)
     except Exception as e:
         print("Exception when calling DefaultApi->save_user: %s\n" % e)
 ```
@@ -1095,9 +1151,12 @@ with openapi_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **x_morph_address** | **str**| Account&#39;s address. | 
  **user** | **str**| User name. | 
+ **x_morph_payload_signature** | **str**| Payload signature in base64. If passed, x-morph-payload will be used to execute request in NeoFS. | [optional] 
  **user_management_request** | [**UserManagementRequest**](UserManagementRequest.md)|  | [optional] 
 
 ### Return type
@@ -1114,6 +1173,7 @@ No authorization required
  - **Accept**: Not defined
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **201** | User successfully registered. |  -  |
@@ -1130,6 +1190,7 @@ Set EACL to the bucket.
 
 ### Example
 
+
 ```python
 import time
 import os
@@ -1138,10 +1199,10 @@ from openapi_client.models.set_eacl_request import SetEaclRequest
 from openapi_client.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to http://localhost/api/v0.7
+# Defining the host is optional and defaults to http://localhost/api/v0.8
 # See configuration.py for a list of all supported configuration parameters.
 configuration = openapi_client.Configuration(
-    host = "http://localhost/api/v0.7"
+    host = "http://localhost/api/v0.8"
 )
 
 
@@ -1165,6 +1226,7 @@ with openapi_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **bucket** | **str**| Bucket name. | 
@@ -1187,6 +1249,7 @@ No authorization required
  - **Accept**: Not defined
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | EACL successfully put. |  -  |
@@ -1205,6 +1268,7 @@ Exchange object operations session tokens for a unified one. It will be used ins
 
 ### Example
 
+
 ```python
 import time
 import os
@@ -1214,10 +1278,10 @@ from openapi_client.models.store_session_response import StoreSessionResponse
 from openapi_client.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to http://localhost/api/v0.7
+# Defining the host is optional and defaults to http://localhost/api/v0.8
 # See configuration.py for a list of all supported configuration parameters.
 configuration = openapi_client.Configuration(
-    host = "http://localhost/api/v0.7"
+    host = "http://localhost/api/v0.8"
 )
 
 
@@ -1240,6 +1304,7 @@ with openapi_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **x_morph_public_key** | **str**| Account&#39;s public key, encoded in base64. | 
@@ -1259,6 +1324,7 @@ No authorization required
  - **Accept**: application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Token successfully created. |  -  |
@@ -1275,6 +1341,7 @@ Top up storage node account with minimal deposit to pay network candidate fee.
 
 ### Example
 
+
 ```python
 import time
 import os
@@ -1283,10 +1350,10 @@ from openapi_client.models.storage_node_top_up_account import StorageNodeTopUpAc
 from openapi_client.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to http://localhost/api/v0.7
+# Defining the host is optional and defaults to http://localhost/api/v0.8
 # See configuration.py for a list of all supported configuration parameters.
 configuration = openapi_client.Configuration(
-    host = "http://localhost/api/v0.7"
+    host = "http://localhost/api/v0.8"
 )
 
 
@@ -1306,6 +1373,7 @@ with openapi_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **storage_node_top_up_account** | [**StorageNodeTopUpAccount**](StorageNodeTopUpAccount.md)|  | [optional] 
@@ -1324,6 +1392,7 @@ No authorization required
  - **Accept**: Not defined
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Balance successfully recharged. |  -  |

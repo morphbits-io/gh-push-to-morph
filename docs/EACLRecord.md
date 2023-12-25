@@ -2,6 +2,7 @@
 
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **operation** | [**List[OperationType]**](OperationType.md) | Request&#39;s operation type to match if the rule is applicable to a particular request | 
