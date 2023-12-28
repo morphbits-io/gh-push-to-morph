@@ -1,9 +1,16 @@
 # GitHub Action to Publish Allure report to Morph object storage
-This action allows you to publish [Allure reports](https://github.com/allure-framework/allure2)
-to [Morph object storage](https://morphbits.io/).
+This GitHub Action facilitates the publishing of [Allure reports](https://github.com/allure-framework/allure2)
+to [Morph object storage](https://morphbits.io/), a robust and scalable solution for handling test reports.
+Designed to streamline the integration and management of test data, this action is a vital tool for teams engaged in TestOps.
 
-The Allure report will be available in a web browser at a static link like this:
-http://example.com:9100/api/v0.7/buckets/tstbucket/objects/my-report.html/download
+For a comprehensive understanding of how Allure TestOps and Morph's cloud-based object storage work in tandem to enhance
+your testing workflow, please refer to our [overview](https://morphbits.io/showcases#allure). This document explains
+the significance of Allure Reports in Quality Assurance and DevOps, the capabilities of Morph's object storage in
+managing test data, and the seamless
+integration of these technologies through GitHub Actions.
+
+The published Allure report will be accessible through a static HTTP link, allowing for easy sharing and review in a web browser:
+http://example.com:9100/api/v0.8/buckets/tstbucket/objects/my-report.html/download
 
 
 ## Supported platforms
@@ -17,7 +24,7 @@ This action was tested on the following runners:
 
 ## GitHub secrets
 The following sensitive information must be passed as
-[GitHub Actions secrets](https://docs.github.com/en/actions/security-guides/using-secrets-in-github-actions).
+[GitHub Actions secrets](https://docs.github.com/en/actions/security-guides/using-secrets-in-github-actions) to protect your data.
 It is very important to use SECRETS and NOT variables, otherwise your username and password will be available to
 the whole internet.
 
@@ -57,7 +64,7 @@ or [GitHub Actions environment variables](https://docs.github.com/en/actions/lea
 
 | Key                 | Value                                                                                              |
 |---------------------|----------------------------------------------------------------------------------------------------|
-| `ALLURE_REPORT_URL` | Output example: http://example.com:9100/api/v0.7/buckets/tstbucket/objects/my-report.html/download |
+| `ALLURE_REPORT_URL` | Output example: http://example.com:9100/api/v0.8/buckets/tstbucket/objects/my-report.html/download |
 
 # Dependencies
 
@@ -78,7 +85,7 @@ You can install Python like this:
 name: Publish Allure report to Morph object storage
 on:
   push:
-    branches: [ master ]
+    branches: [ main ]
 env:
   ALLURE_RESULTS_DIR: ${GITHUB_WORKSPACE}/allure-results
 jobs:
@@ -105,7 +112,7 @@ jobs:
       - uses: actions/checkout@v4
       - name: Publish Allure report to Morph object storage
         id: publish_to_morph_object_storage
-        uses: morphbits-io/gh-push-to-morph@master
+        uses: morphbits-io/gh-push-to-morph@main
         with:
           MORPH_USER_NAME: ${{ secrets.MORPH_USER_NAME }}
           MORPH_USER_PASSWORD: ${{ secrets.MORPH_USER_PASSWORD }}
