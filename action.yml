@@ -58,7 +58,7 @@ runs:
       env:
         TIMESTAMP: ${{ steps.date.outputs.timestamp }}
       run: |
-        echo "REPORT_NAME=${GITHUB_WORKSPACE}/${{ github.run_number }}-$TIMESTAMP.html" >> $GITHUB_ENV
+        echo "REPORT_NAME=${{ github.run_number }}-$TIMESTAMP.html" >> $GITHUB_ENV
 
     - name: Generate Allure report
       id: allure-report
