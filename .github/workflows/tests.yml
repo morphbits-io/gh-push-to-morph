@@ -1,0 +1,52 @@
+name: Run automated tests
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+      - support/**
+    types: [opened, synchronize]
+    paths-ignore:
+      - '**/*.md'
+  release:
+    types:
+      - published
+  workflow_dispatch:
+
+permissions: write-all
+
+jobs:
+  run_system_tests:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - name: Checkout gh-push-allure-report-to-neofs
+        uses: actions/checkout@v4
+
+      - name: Run gh-push-allure-report-to-morph
+        id: gh_push_allure_report_to_morph
+        uses: ./
+        with:
+          MORPH_USER_NAME: ${{ secrets.MORPH_USER_NAME }}
+          MORPH_USER_PASSWORD: ${{ secrets.MORPH_USER_PASSWORD }}
+          ALLURE_REPORT_BUCKET_NAME: ${{ vars.ALLURE_REPORT_BUCKET_NAME }}
+          ALLURE_RESULTS_DIR: './tests/allure-report'
+
+      - name: Prepare venv
+        shell: bash
+        id: prepare_venv
+        run: |
+          python3 -m venv venv
+          source venv/bin/activate && pip install -r requirements.txt
+        working-directory: ./tests
+
+      - name: Run tests
+        env:
+          ALLURE_REPORT_URL: ${{ steps.gh_push_allure_report_to_morph.outputs.ALLURE_REPORT_URL }}
+          REPORT_DIR: '../morph-allure-generated-report'
+        run: |
+          source venv/bin/activate && pytest test_downloads.py --base_url="$ALLURE_REPORT_URL" --report_dir="$REPORT_DIR"
+        working-directory: ./tests
