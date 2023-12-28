@@ -25,8 +25,7 @@ This action was tested on the following runners:
 ## GitHub secrets
 The following sensitive information must be passed as
 [GitHub Actions secrets](https://docs.github.com/en/actions/security-guides/using-secrets-in-github-actions) to protect your data.
-It is very important to use SECRETS and NOT variables, otherwise your username and password will be available to
-the whole internet.
+It is very important to use SECRETS and NOT variables, otherwise your username and password will be exposed to the Internet.
 
 | Key                   | Value                                     | Required | Default |
 |-----------------------|-------------------------------------------|----------|---------|
@@ -42,7 +41,7 @@ The following variables must be passed as
 [GitHub Actions vars context](https://docs.github.com/en/actions/learn-github-actions/variables#using-the-vars-context-to-access-configuration-variable-values) 
 or [GitHub Actions environment variables](https://docs.github.com/en/actions/learn-github-actions/variables).
 
-Up-to-date information about Morph storage network can be seen on [Morph object storage documentation](https://morphbits.io/).
+Up-to-date information about Morph storage network can be found on [Morph object storage documentation](https://morphbits.io/).
 
 | Key                         | Value                                   | Required | Default |
 |-----------------------------|-----------------------------------------|----------|---------|
