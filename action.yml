@@ -13,7 +13,8 @@ inputs:
     required: true
   MORPH_URL:
     description: Morph object storage address
-    required: true
+    required: false
+    default: 'https://morph.morphbits.io'
   MORPH_PORT:
     description: Morph object storage address
     required: false
@@ -58,7 +59,7 @@ runs:
       env:
         TIMESTAMP: ${{ steps.date.outputs.timestamp }}
       run: |
-        echo "REPORT_NAME=${GITHUB_WORKSPACE}/${{ github.run_number }}-$TIMESTAMP.html" >> $GITHUB_ENV
+        echo "REPORT_NAME=${{ github.run_number }}-$TIMESTAMP.html" >> $GITHUB_ENV
 
     - name: Generate Allure report
       id: allure-report
@@ -111,5 +112,4 @@ runs:
         source "$GITHUB_ACTION_PATH/venv/bin/activate" && MORPH_USER_PASSWORD=$MORPH_USER_PASSWORD python "$GITHUB_ACTION_PATH/push-to-morph.py" \
         --username "$MORPH_USER_NAME" --url "$MORPH_URL" --port "$MORPH_PORT" --bucket "$ALLURE_REPORT_BUCKET_NAME" \
         --report "$ALLURE_GENERATED_DIR/$REPORT_NAME"
-        REPORT_URL="https://$MORPH_URL/$ALLURE_REPORT_BUCKET_NAME/index.html"
-        echo "allure_report_url=$MORPH_URL:$MORPH_PORT/api/v0.7/buckets/$ALLURE_REPORT_BUCKET_NAME/objects/$REPORT_NAME/download" >> $GITHUB_OUTPUT
+        echo "allure_report_url=$MORPH_URL:$MORPH_PORT/api/v0.8/buckets/$ALLURE_REPORT_BUCKET_NAME/objects/$REPORT_NAME/download" >> $GITHUB_OUTPUT
