@@ -43,11 +43,11 @@ or [GitHub Actions environment variables](https://docs.github.com/en/actions/lea
 
 Up-to-date information about Morph storage network can be found on [Morph object storage documentation](https://morphbits.io/).
 
-| Key                         | Value                                   | Required | Default |
-|-----------------------------|-----------------------------------------|----------|---------|
-| `MORPH_URL`                 | Morph object storage address            | **Yes**  | N/A     |
-| `MORPH_PORT`                | Morph object storage port               | **No**   | 9100    |
-| `ALLURE_REPORT_BUCKET_NAME` | Bucket name for your Allure report data | **Yes**  | N/A     |
+| Key                         | Value                                   | Required | Default                    |
+|-----------------------------|-----------------------------------------|----------|----------------------------|
+| `MORPH_URL`                 | Morph object storage address            | **No**   | https://morph.morphbits.io |
+| `MORPH_PORT`                | Morph object storage port               | **No**   | 9100                       |
+| `ALLURE_REPORT_BUCKET_NAME` | Bucket name for your Allure report data | **Yes**  | N/A                        |
 
 ### Workflow environment variables
 The following variables must be passed as

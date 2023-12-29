@@ -13,7 +13,8 @@ inputs:
     required: true
   MORPH_URL:
     description: Morph object storage address
-    required: true
+    required: false
+    default: 'https://morph.morphbits.io'
   MORPH_PORT:
     description: Morph object storage address
     required: false
