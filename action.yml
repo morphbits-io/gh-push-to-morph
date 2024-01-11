@@ -33,7 +33,7 @@ inputs:
 outputs:
   ALLURE_REPORT_URL:
     description: URL for the Allure report
-    value: ${{ steps.put_files.outputs.put_allure_report_to_morph_object_storage.allure_report_url }}
+    value: ${{ steps.put_allure_report_to_morph_object_storage.outputs.allure_report_url }}
 
 runs:
   using: composite
