@@ -73,7 +73,6 @@ runs:
       env:
         ALLURE_RESULTS_DIR: ${{ inputs.ALLURE_RESULTS_DIR }}
         ALLURE_GENERATED_DIR: ${{ inputs.ALLURE_GENERATED_DIR }}
-        allure_history: allure-history
       run: |
         allure generate --clean --single-file --report-dir "$ALLURE_GENERATED_DIR" "$ALLURE_RESULTS_DIR"
 
