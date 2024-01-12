@@ -3,7 +3,7 @@ import pytest
 
 def pytest_addoption(parser):
     parser.addoption(
-        "--base_url",
+        "--url",
         action="store",
         default=None,
         help="Base URL to test against",
@@ -17,8 +17,8 @@ def pytest_addoption(parser):
 
 
 @pytest.fixture
-def base_url(request):
-    return request.config.getoption("--base_url")
+def url(request):
+    return request.config.getoption("--url")
 
 
 @pytest.fixture

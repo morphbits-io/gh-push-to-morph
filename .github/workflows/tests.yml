@@ -23,7 +23,7 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 30
     steps:
-      - name: Checkout gh-push-allure-report-to-neofs
+      - name: Checkout gh-push-to-morph
         uses: actions/checkout@v4
 
       - name: Run gh-push-allure-report-to-morph
@@ -33,6 +33,7 @@ jobs:
           MORPH_USER_NAME: ${{ secrets.MORPH_USER_NAME }}
           MORPH_USER_PASSWORD: ${{ secrets.MORPH_USER_PASSWORD }}
           ALLURE_REPORT_BUCKET_NAME: ${{ vars.ALLURE_REPORT_BUCKET_NAME }}
+          MORPH_PORT: ${{ vars.MORPH_PORT }}
           ALLURE_RESULTS_DIR: './tests/allure-report'
 
       - name: Prepare venv
@@ -48,5 +49,5 @@ jobs:
           ALLURE_REPORT_URL: ${{ steps.gh_push_allure_report_to_morph.outputs.ALLURE_REPORT_URL }}
           REPORT_DIR: '../morph-allure-generated-report'
         run: |
-          source venv/bin/activate && pytest test_downloads.py --base_url="$ALLURE_REPORT_URL" --report_dir="$REPORT_DIR"
+          source venv/bin/activate && pytest test_downloads.py --url="$ALLURE_REPORT_URL" --report_dir="$REPORT_DIR"
         working-directory: ./tests

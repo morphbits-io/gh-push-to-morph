@@ -18,7 +18,7 @@ inputs:
   MORPH_PORT:
     description: Morph object storage address
     required: false
-    default: '9100'
+    default: '443'
   ALLURE_REPORT_BUCKET_NAME:
     description: Bucket name for your Allure report data
     required: true
@@ -33,7 +33,7 @@ inputs:
 outputs:
   ALLURE_REPORT_URL:
     description: URL for the Allure report
-    value: ${{ steps.put_files.outputs.put_allure_report_to_morph_object_storage.allure_report_url }}
+    value: ${{ steps.put_allure_report_to_morph_object_storage.outputs.allure_report_url }}
 
 runs:
   using: composite
@@ -43,6 +43,12 @@ runs:
       shell: bash
       run: |
         echo "timestamp=$(date +%s)" >> $GITHUB_OUTPUT
+
+    - name: Fix OpenSSL ripemd160
+      id: openssl_fix
+      shell: bash
+      run: |    
+          sudo python "$GITHUB_ACTION_PATH/tools/openssl_config_fix.py"
 
     - name: Install Allure
       id: install_allure
@@ -67,7 +73,6 @@ runs:
       env:
         ALLURE_RESULTS_DIR: ${{ inputs.ALLURE_RESULTS_DIR }}
         ALLURE_GENERATED_DIR: ${{ inputs.ALLURE_GENERATED_DIR }}
-        allure_history: allure-history
       run: |
         allure generate --clean --single-file --report-dir "$ALLURE_GENERATED_DIR" "$ALLURE_RESULTS_DIR"
 
@@ -112,4 +117,5 @@ runs:
         source "$GITHUB_ACTION_PATH/venv/bin/activate" && MORPH_USER_PASSWORD=$MORPH_USER_PASSWORD python "$GITHUB_ACTION_PATH/push-to-morph.py" \
         --username "$MORPH_USER_NAME" --url "$MORPH_URL" --port "$MORPH_PORT" --bucket "$ALLURE_REPORT_BUCKET_NAME" \
         --report "$ALLURE_GENERATED_DIR/$REPORT_NAME"
+        echo "See report: $MORPH_URL:$MORPH_PORT/api/v0.8/buckets/$ALLURE_REPORT_BUCKET_NAME/objects/$REPORT_NAME/download"
         echo "allure_report_url=$MORPH_URL:$MORPH_PORT/api/v0.8/buckets/$ALLURE_REPORT_BUCKET_NAME/objects/$REPORT_NAME/download" >> $GITHUB_OUTPUT

@@ -12,7 +12,7 @@ from openapi_client import SignedSessionToken, GetUserResponse, DefaultApi, Sess
 
 # Constants
 MORPH_USER_PASSWORD_ENV_NAME = "MORPH_USER_PASSWORD"
-PORT_9100 = 9100
+PORT_443 = 443
 API_VERSION = "api/v0.8"
 
 # Configure logging
@@ -30,7 +30,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--username", required=True, type=str, help="Username for Morph object storage account")
     parser.add_argument("--url", required=True, type=str,
                         help="Morph object storage address. Example: http://localhost, http://example.com")
-    parser.add_argument("--port", required=False, type=int, help="Morph object storage port", default=PORT_9100)
+    parser.add_argument("--port", required=False, type=int, help="Morph object storage port", default=PORT_443)
     parser.add_argument("--bucket", required=True, type=str, help="Bucket name for your Allure report data")
     parser.add_argument("--report", required=True, type=str,
                         help="Path to the Allure report file")
