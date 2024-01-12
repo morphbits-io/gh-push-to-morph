@@ -18,7 +18,7 @@ inputs:
   MORPH_PORT:
     description: Morph object storage address
     required: false
-    default: '9100'
+    default: '443'
   ALLURE_REPORT_BUCKET_NAME:
     description: Bucket name for your Allure report data
     required: true

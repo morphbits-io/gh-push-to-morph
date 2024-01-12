@@ -10,7 +10,7 @@ managing test data, and the seamless
 integration of these technologies through GitHub Actions.
 
 The published Allure report will be accessible through a static HTTP link, allowing for easy sharing and review in a web browser:
-http://example.com:9100/api/v0.8/buckets/tstbucket/objects/my-report.html/download
+http://example.com:443/api/v0.8/buckets/tstbucket/objects/my-report.html/download
 
 
 ## Supported platforms
@@ -46,7 +46,7 @@ Up-to-date information about Morph storage network can be found on [Morph object
 | Key                         | Value                                   | Required | Default                    |
 |-----------------------------|-----------------------------------------|----------|----------------------------|
 | `MORPH_URL`                 | Morph object storage address            | **No**   | https://morph.morphbits.io |
-| `MORPH_PORT`                | Morph object storage port               | **No**   | 9100                       |
+| `MORPH_PORT`                | Morph object storage port               | **No**   | 443                       |
 | `ALLURE_REPORT_BUCKET_NAME` | Bucket name for your Allure report data | **Yes**  | N/A                        |
 
 ### Workflow environment variables
@@ -63,7 +63,7 @@ or [GitHub Actions environment variables](https://docs.github.com/en/actions/lea
 
 | Key                 | Value                                                                                              |
 |---------------------|----------------------------------------------------------------------------------------------------|
-| `ALLURE_REPORT_URL` | Output example: http://example.com:9100/api/v0.8/buckets/tstbucket/objects/my-report.html/download |
+| `ALLURE_REPORT_URL` | Output example: http://example.com:443/api/v0.8/buckets/tstbucket/objects/my-report.html/download |
 
 # Dependencies
 
