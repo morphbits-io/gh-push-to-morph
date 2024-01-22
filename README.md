@@ -53,12 +53,29 @@ Up-to-date information about Morph storage network can be found on [Morph object
 ### Workflow environment variables
 _The following variables are expected to be passed via
 [GitHub Actions vars context](https://docs.github.com/en/actions/learn-github-actions/variables#using-the-vars-context-to-access-configuration-variable-values)
-or [GitHub Actions environment variables](https://docs.github.com/en/actions/learn-github-actions/variables).
+or [GitHub Actions environment variables](https://docs.github.com/en/actions/learn-github-actions/variables)._
 
 | Key                    | Value                                                                                                                                                                                                                                     | Required | Default                                           |
 |------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------|---------------------------------------------------|
 | `ALLURE_RESULTS_DIR`   | Path to the directory where the Allure test report is stored                                                                                                                                                                              | **Yes**  | N/A                                               |
 | `ALLURE_GENERATED_DIR` | Path to the directory that will be used to store the generated report. This directory will be created automatically if it does not exist. ATTENTION - all files that were in this directory before the action was started will be deleted | **No**   | ${GITHUB_WORKSPACE}/morph-allure-generated-report |
+
+### Expiration period environment variables
+_The following variables are expected to be passed via
+[GitHub Actions vars context](https://docs.github.com/en/actions/learn-github-actions/variables#using-the-vars-context-to-access-configuration-variable-values)
+or [GitHub Actions environment variables](https://docs.github.com/en/actions/learn-github-actions/variables)._
+
+These environment variables are responsible for the storage time of the Allure report in the storage network in HOURS.
+
+After the period is over, the Allure report will be deleted. They are convenient to use for test reports rotation.
+
+They default is 0, in which case the Allure reports will be stored until they are manually deleted.
+We recommend setting a reasonable and convenient expiration period, for example, a month (744 hours).
+
+
+| Key        | Value                                                                                                       | Required | Default |
+|------------|-------------------------------------------------------------------------------------------------------------|----------|---------|
+| `LIFETIME` | Allure report lifetime, in hours. Zero means no expiration. Number of HOURS for Allure report to stay valid | **No**   | 0       |
 
 ## Output
 
@@ -92,6 +109,9 @@ jobs:
   push-to-morph:
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
@@ -120,6 +140,7 @@ jobs:
           ALLURE_REPORT_BUCKET_NAME: ${{ vars.ALLURE_REPORT_BUCKET_NAME }}
           ALLURE_GENERATED_DIR: ${{ vars.ALLURE_GENERATED_DIR }}
           ALLURE_RESULTS_DIR: ${{ env.ALLURE_RESULTS_DIR }}
+          LIFETIME: ${{ vars.LIFETIME }}
 
       - name: Post a link to the Allure report stored in the Morph object repository
         id: post_report_link

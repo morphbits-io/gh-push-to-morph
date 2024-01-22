@@ -35,6 +35,7 @@ jobs:
           ALLURE_REPORT_BUCKET_NAME: ${{ vars.ALLURE_REPORT_BUCKET_NAME }}
           MORPH_PORT: ${{ vars.MORPH_PORT }}
           ALLURE_RESULTS_DIR: './tests/allure-report'
+          LIFETIME: ${{ vars.LIFETIME }}
 
       - name: Prepare venv
         shell: bash

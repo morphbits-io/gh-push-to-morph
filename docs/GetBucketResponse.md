@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **e_acl** | [**EACL**](EACL.md) |  | 
 **placement_policy** | [**PlacementPolicy**](PlacementPolicy.md) |  | 
 **owner** | **str** | Address of bucket owner in base58. | 
+**size** | **int** | Bucket used space in bytes. | 
 
 ## Example
 

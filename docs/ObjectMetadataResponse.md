@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **size** | **int** | Data size. | 
 **file_name** | **str** | Name of the associated file. | 
 **content_type** | **str** | Media type from https://www.iana.org/assignments/media-types/media-types.xhtml | [default to 'application/octet-stream']
+**expiration_hours** | **int** | Object expiration in hours, since object creation time. Zero means no expiration. | [default to 0]
 
 ## Example
 

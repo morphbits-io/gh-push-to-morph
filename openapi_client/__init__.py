@@ -66,5 +66,6 @@ from openapi_client.models.signed_session_token import SignedSessionToken
 from openapi_client.models.storage_node_top_up_account import StorageNodeTopUpAccount
 from openapi_client.models.store_session_response import StoreSessionResponse
 from openapi_client.models.user import User
+from openapi_client.models.user_management_delete_request import UserManagementDeleteRequest
 from openapi_client.models.user_management_request import UserManagementRequest
 from openapi_client.models.user_role import UserRole

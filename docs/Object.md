@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **creation_date** | **datetime** | Creation date in RFC 3339 format. | 
 **size** | **int** | Data size. | 
 **content_type** | **str** | Media type from https://www.iana.org/assignments/media-types/media-types.xhtml | [default to 'application/octet-stream']
+**lifetime** | **int** | Object lifetime in hours, since object creation time. Zero means no expiration. | [default to 0]
 
 ## Example
 

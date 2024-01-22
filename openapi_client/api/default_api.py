@@ -25,7 +25,7 @@ except ImportError:
 
 from pydantic import Field
 from typing_extensions import Annotated
-from pydantic import StrictBytes, StrictStr
+from pydantic import StrictBytes, StrictInt, StrictStr
 
 from typing import List, Optional, Union
 
@@ -42,6 +42,7 @@ from openapi_client.models.set_eacl_request import SetEaclRequest
 from openapi_client.models.signed_session_token import SignedSessionToken
 from openapi_client.models.storage_node_top_up_account import StorageNodeTopUpAccount
 from openapi_client.models.store_session_response import StoreSessionResponse
+from openapi_client.models.user_management_delete_request import UserManagementDeleteRequest
 from openapi_client.models.user_management_request import UserManagementRequest
 
 from openapi_client.api_client import ApiClient
@@ -388,6 +389,7 @@ class DefaultApi:
         x_morph_unified_session_token: Annotated[StrictStr, Field(description="Unified session token.")],
         name: Annotated[str, Field(min_length=1, strict=True, description="Object name.")],
         data: Union[StrictBytes, StrictStr],
+        lifetime: Annotated[Optional[StrictInt], Field(description="Object lifetime, in hours. The actual object lifetime will be calculated according network epoch duration. Zero means no expiration.")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -415,6 +417,8 @@ class DefaultApi:
         :type name: str
         :param data: (required)
         :type data: bytearray
+        :param lifetime: Object lifetime, in hours. The actual object lifetime will be calculated according network epoch duration. Zero means no expiration.
+        :type lifetime: int
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -443,6 +447,7 @@ class DefaultApi:
             x_morph_unified_session_token=x_morph_unified_session_token,
             name=name,
             data=data,
+            lifetime=lifetime,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -476,6 +481,7 @@ class DefaultApi:
         x_morph_unified_session_token: Annotated[StrictStr, Field(description="Unified session token.")],
         name: Annotated[str, Field(min_length=1, strict=True, description="Object name.")],
         data: Union[StrictBytes, StrictStr],
+        lifetime: Annotated[Optional[StrictInt], Field(description="Object lifetime, in hours. The actual object lifetime will be calculated according network epoch duration. Zero means no expiration.")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -503,6 +509,8 @@ class DefaultApi:
         :type name: str
         :param data: (required)
         :type data: bytearray
+        :param lifetime: Object lifetime, in hours. The actual object lifetime will be calculated according network epoch duration. Zero means no expiration.
+        :type lifetime: int
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -531,6 +539,7 @@ class DefaultApi:
             x_morph_unified_session_token=x_morph_unified_session_token,
             name=name,
             data=data,
+            lifetime=lifetime,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -564,6 +573,7 @@ class DefaultApi:
         x_morph_unified_session_token: Annotated[StrictStr, Field(description="Unified session token.")],
         name: Annotated[str, Field(min_length=1, strict=True, description="Object name.")],
         data: Union[StrictBytes, StrictStr],
+        lifetime: Annotated[Optional[StrictInt], Field(description="Object lifetime, in hours. The actual object lifetime will be calculated according network epoch duration. Zero means no expiration.")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -591,6 +601,8 @@ class DefaultApi:
         :type name: str
         :param data: (required)
         :type data: bytearray
+        :param lifetime: Object lifetime, in hours. The actual object lifetime will be calculated according network epoch duration. Zero means no expiration.
+        :type lifetime: int
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -619,6 +631,7 @@ class DefaultApi:
             x_morph_unified_session_token=x_morph_unified_session_token,
             name=name,
             data=data,
+            lifetime=lifetime,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -647,6 +660,7 @@ class DefaultApi:
         x_morph_unified_session_token,
         name,
         data,
+        lifetime,
         _request_auth,
         _content_type,
         _headers,
@@ -679,6 +693,8 @@ class DefaultApi:
             _form_params.append(('name', name))
         if data is not None:
             _files['data'] = data
+        if lifetime is not None:
+            _form_params.append(('lifetime', lifetime))
         # process the body parameter
 
 
@@ -1589,6 +1605,7 @@ class DefaultApi:
         user: Annotated[StrictStr, Field(description="User name.")],
         x_morph_address: Annotated[StrictStr, Field(description="Account's address.")],
         x_morph_payload_signature: Annotated[Optional[StrictStr], Field(description="Payload signature in base64. If passed, x-morph-payload will be used to execute request in NeoFS.")] = None,
+        user_management_delete_request: Optional[UserManagementDeleteRequest] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1604,7 +1621,7 @@ class DefaultApi:
     ) -> None:
         """delete_user
 
-        Delete a user.
+        Delete a user. If superKey passed, the signature should be calculated using body payload, otherwise use username as payload.
 
         :param user: User name. (required)
         :type user: str
@@ -1612,6 +1629,8 @@ class DefaultApi:
         :type x_morph_address: str
         :param x_morph_payload_signature: Payload signature in base64. If passed, x-morph-payload will be used to execute request in NeoFS.
         :type x_morph_payload_signature: str
+        :param user_management_delete_request:
+        :type user_management_delete_request: UserManagementDeleteRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1638,6 +1657,7 @@ class DefaultApi:
             user=user,
             x_morph_address=x_morph_address,
             x_morph_payload_signature=x_morph_payload_signature,
+            user_management_delete_request=user_management_delete_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1666,6 +1686,7 @@ class DefaultApi:
         user: Annotated[StrictStr, Field(description="User name.")],
         x_morph_address: Annotated[StrictStr, Field(description="Account's address.")],
         x_morph_payload_signature: Annotated[Optional[StrictStr], Field(description="Payload signature in base64. If passed, x-morph-payload will be used to execute request in NeoFS.")] = None,
+        user_management_delete_request: Optional[UserManagementDeleteRequest] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1681,7 +1702,7 @@ class DefaultApi:
     ) -> ApiResponse[None]:
         """delete_user
 
-        Delete a user.
+        Delete a user. If superKey passed, the signature should be calculated using body payload, otherwise use username as payload.
 
         :param user: User name. (required)
         :type user: str
@@ -1689,6 +1710,8 @@ class DefaultApi:
         :type x_morph_address: str
         :param x_morph_payload_signature: Payload signature in base64. If passed, x-morph-payload will be used to execute request in NeoFS.
         :type x_morph_payload_signature: str
+        :param user_management_delete_request:
+        :type user_management_delete_request: UserManagementDeleteRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1715,6 +1738,7 @@ class DefaultApi:
             user=user,
             x_morph_address=x_morph_address,
             x_morph_payload_signature=x_morph_payload_signature,
+            user_management_delete_request=user_management_delete_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1743,6 +1767,7 @@ class DefaultApi:
         user: Annotated[StrictStr, Field(description="User name.")],
         x_morph_address: Annotated[StrictStr, Field(description="Account's address.")],
         x_morph_payload_signature: Annotated[Optional[StrictStr], Field(description="Payload signature in base64. If passed, x-morph-payload will be used to execute request in NeoFS.")] = None,
+        user_management_delete_request: Optional[UserManagementDeleteRequest] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1758,7 +1783,7 @@ class DefaultApi:
     ) -> RESTResponseType:
         """delete_user
 
-        Delete a user.
+        Delete a user. If superKey passed, the signature should be calculated using body payload, otherwise use username as payload.
 
         :param user: User name. (required)
         :type user: str
@@ -1766,6 +1791,8 @@ class DefaultApi:
         :type x_morph_address: str
         :param x_morph_payload_signature: Payload signature in base64. If passed, x-morph-payload will be used to execute request in NeoFS.
         :type x_morph_payload_signature: str
+        :param user_management_delete_request:
+        :type user_management_delete_request: UserManagementDeleteRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1792,6 +1819,7 @@ class DefaultApi:
             user=user,
             x_morph_address=x_morph_address,
             x_morph_payload_signature=x_morph_payload_signature,
+            user_management_delete_request=user_management_delete_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1815,6 +1843,7 @@ class DefaultApi:
         user,
         x_morph_address,
         x_morph_payload_signature,
+        user_management_delete_request,
         _request_auth,
         _content_type,
         _headers,
@@ -1844,9 +1873,24 @@ class DefaultApi:
             _header_params['x-morph-payload-signature'] = x_morph_payload_signature
         # process the form parameters
         # process the body parameter
+        if user_management_delete_request is not None:
+            _body_params = user_management_delete_request
 
 
 
+        # set the HTTP header `Content-Type`
+        if _content_type:
+            _header_params['Content-Type'] = _content_type
+        else:
+            _default_content_type = (
+                self.api_client.select_header_content_type(
+                    [
+                        'application/json'
+                    ]
+                )
+            )
+            if _default_content_type is not None:
+                _header_params['Content-Type'] = _default_content_type
 
         # authentication setting
         _auth_settings: List[str] = [

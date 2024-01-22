@@ -19,7 +19,7 @@ import json
 
 from datetime import datetime
 from typing import Any, ClassVar, Dict, List
-from pydantic import BaseModel, StrictStr
+from pydantic import BaseModel, StrictInt, StrictStr
 from pydantic import Field
 from typing_extensions import Annotated
 from openapi_client.models.basic_acl import BasicACL
@@ -40,7 +40,8 @@ class GetBucketResponse(BaseModel):
     e_acl: EACL = Field(alias="eACL")
     placement_policy: PlacementPolicy = Field(alias="placementPolicy")
     owner: StrictStr = Field(description="Address of bucket owner in base58.")
-    __properties: ClassVar[List[str]] = ["creationDate", "name", "basicACL", "eACL", "placementPolicy", "owner"]
+    size: StrictInt = Field(description="Bucket used space in bytes.")
+    __properties: ClassVar[List[str]] = ["creationDate", "name", "basicACL", "eACL", "placementPolicy", "owner", "size"]
 
     model_config = {
         "populate_by_name": True,
@@ -105,7 +106,8 @@ class GetBucketResponse(BaseModel):
             "basicACL": BasicACL.from_dict(obj.get("basicACL")) if obj.get("basicACL") is not None else None,
             "eACL": EACL.from_dict(obj.get("eACL")) if obj.get("eACL") is not None else None,
             "placementPolicy": PlacementPolicy.from_dict(obj.get("placementPolicy")) if obj.get("placementPolicy") is not None else None,
-            "owner": obj.get("owner")
+            "owner": obj.get("owner"),
+            "size": obj.get("size")
         })
         return _obj
 
