@@ -103,8 +103,9 @@ name: Publish Allure report to Morph object storage
 on:
   push:
     branches: [ main ]
+
 env:
-  ALLURE_RESULTS_DIR: ${GITHUB_WORKSPACE}/allure-results
+  ALLURE_RESULTS_DIR: ${{ github.workspace }}/allure-results
 jobs:
   push-to-morph:
     runs-on: ubuntu-latest
