@@ -129,7 +129,6 @@ jobs:
           source venv/bin/activate && pytest --alluredir=${{ env.ALLURE_RESULTS_DIR }} pytest_tests/testsuites
         working-directory: testcases
   
-      - uses: actions/checkout@v4
       - name: Publish Allure report to Morph object storage
         id: publish_to_morph_object_storage
         uses: morphbits-io/gh-push-to-morph@main
