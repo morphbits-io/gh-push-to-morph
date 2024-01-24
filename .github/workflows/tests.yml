@@ -16,8 +16,6 @@ on:
       - published
   workflow_dispatch:
 
-permissions: write-all
-
 jobs:
   run_system_tests:
     runs-on: ubuntu-latest
