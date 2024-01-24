@@ -143,6 +143,7 @@ Class | Method | HTTP request | Description
  - [StorageNodeTopUpAccount](docs/StorageNodeTopUpAccount.md)
  - [StoreSessionResponse](docs/StoreSessionResponse.md)
  - [User](docs/User.md)
+ - [UserManagementDeleteRequest](docs/UserManagementDeleteRequest.md)
  - [UserManagementRequest](docs/UserManagementRequest.md)
  - [UserRole](docs/UserRole.md)
 

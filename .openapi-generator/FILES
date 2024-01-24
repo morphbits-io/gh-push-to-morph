@@ -39,6 +39,7 @@ docs/SignedSessionToken.md
 docs/StorageNodeTopUpAccount.md
 docs/StoreSessionResponse.md
 docs/User.md
+docs/UserManagementDeleteRequest.md
 docs/UserManagementRequest.md
 docs/UserRole.md
 git_push.sh
@@ -85,6 +86,7 @@ openapi_client/models/signed_session_token.py
 openapi_client/models/storage_node_top_up_account.py
 openapi_client/models/store_session_response.py
 openapi_client/models/user.py
+openapi_client/models/user_management_delete_request.py
 openapi_client/models/user_management_request.py
 openapi_client/models/user_role.py
 openapi_client/py.typed

@@ -17,26 +17,21 @@ import pprint
 import re  # noqa: F401
 import json
 
-from datetime import datetime
-from typing import Any, ClassVar, Dict, List
-from pydantic import BaseModel, StrictInt, StrictStr
+
+from typing import Any, ClassVar, Dict, List, Optional
+from pydantic import BaseModel, StrictStr
 from pydantic import Field
-from typing_extensions import Annotated
 try:
     from typing import Self
 except ImportError:
     from typing_extensions import Self
 
-class ObjectMetadataResponse(BaseModel):
+class UserManagementDeleteRequest(BaseModel):
     """
-    ObjectMetadataResponse
+    UserManagementDeleteRequest
     """ # noqa: E501
-    creation_date: datetime = Field(description="Creation date in RFC 3339 format.", alias="creationDate")
-    size: Annotated[int, Field(strict=True, ge=0)] = Field(description="Data size.")
-    file_name: Annotated[str, Field(min_length=1, strict=True)] = Field(description="Name of the associated file.", alias="fileName")
-    content_type: StrictStr = Field(description="Media type from https://www.iana.org/assignments/media-types/media-types.xhtml", alias="contentType")
-    expiration_hours: StrictInt = Field(description="Object expiration in hours, since object creation time. Zero means no expiration.", alias="expirationHours")
-    __properties: ClassVar[List[str]] = ["creationDate", "size", "fileName", "contentType", "expirationHours"]
+    super_key: Optional[StrictStr] = Field(default=None, description="Superkey wallet file. It should be passed to the request only in case of admin removing.", alias="superKey")
+    __properties: ClassVar[List[str]] = ["superKey"]
 
     model_config = {
         "populate_by_name": True,
@@ -56,7 +51,7 @@ class ObjectMetadataResponse(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Self:
-        """Create an instance of ObjectMetadataResponse from a JSON string"""
+        """Create an instance of UserManagementDeleteRequest from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -79,7 +74,7 @@ class ObjectMetadataResponse(BaseModel):
 
     @classmethod
     def from_dict(cls, obj: Dict) -> Self:
-        """Create an instance of ObjectMetadataResponse from a dict"""
+        """Create an instance of UserManagementDeleteRequest from a dict"""
         if obj is None:
             return None
 
@@ -87,11 +82,7 @@ class ObjectMetadataResponse(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "creationDate": obj.get("creationDate"),
-            "size": obj.get("size"),
-            "fileName": obj.get("fileName"),
-            "contentType": obj.get("contentType") if obj.get("contentType") is not None else 'application/octet-stream',
-            "expirationHours": obj.get("expirationHours") if obj.get("expirationHours") is not None else 0
+            "superKey": obj.get("superKey")
         })
         return _obj
 

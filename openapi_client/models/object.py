@@ -19,7 +19,7 @@ import json
 
 from datetime import datetime
 from typing import Any, ClassVar, Dict, List
-from pydantic import BaseModel, StrictStr
+from pydantic import BaseModel, StrictInt, StrictStr
 from pydantic import Field
 from typing_extensions import Annotated
 try:
@@ -35,7 +35,8 @@ class Object(BaseModel):
     creation_date: datetime = Field(description="Creation date in RFC 3339 format.", alias="creationDate")
     size: Annotated[int, Field(strict=True, ge=0)] = Field(description="Data size.")
     content_type: StrictStr = Field(description="Media type from https://www.iana.org/assignments/media-types/media-types.xhtml", alias="contentType")
-    __properties: ClassVar[List[str]] = ["name", "creationDate", "size", "contentType"]
+    lifetime: StrictInt = Field(description="Object lifetime in hours, since object creation time. Zero means no expiration.")
+    __properties: ClassVar[List[str]] = ["name", "creationDate", "size", "contentType", "lifetime"]
 
     model_config = {
         "populate_by_name": True,
@@ -89,7 +90,8 @@ class Object(BaseModel):
             "name": obj.get("name"),
             "creationDate": obj.get("creationDate"),
             "size": obj.get("size"),
-            "contentType": obj.get("contentType") if obj.get("contentType") is not None else 'application/octet-stream'
+            "contentType": obj.get("contentType") if obj.get("contentType") is not None else 'application/octet-stream',
+            "lifetime": obj.get("lifetime") if obj.get("lifetime") is not None else 0
         })
         return _obj
 

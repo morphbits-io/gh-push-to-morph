@@ -14,6 +14,7 @@ from openapi_client import SignedSessionToken, GetUserResponse, DefaultApi, Sess
 MORPH_USER_PASSWORD_ENV_NAME = "MORPH_USER_PASSWORD"
 PORT_443 = 443
 API_VERSION = "api/v0.8"
+DEFAULT_LIFETIME = 0
 
 # Configure logging
 logging.basicConfig(level=logging.DEBUG, format='%(asctime)s - %(levelname)s - %(message)s')
@@ -34,6 +35,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--bucket", required=True, type=str, help="Bucket name for your Allure report data")
     parser.add_argument("--report", required=True, type=str,
                         help="Path to the Allure report file")
+    parser.add_argument("--lifetime", required=False, type=int, help="Morph object storage port", default=DEFAULT_LIFETIME)
     return parser.parse_args()
 
 
@@ -202,7 +204,8 @@ def main():
     bucket = args.bucket
     username = args.username
     object_name = os.path.basename(data)
-    logging.debug(f"username: {username}, host: {morph_host}, bucket: {bucket}, report: {data}")
+    lifetime = args.lifetime
+    logging.debug(f"username: {username}, host: {morph_host}, bucket: {bucket}, report: {data}, lifetime: {lifetime}")
 
     configuration = openapi_client.Configuration(host=morph_host)
 
@@ -213,7 +216,7 @@ def main():
         unified_token = get_unified_token(api_instance, bucket, public_key, private_key, morph_password)
 
         try:
-            api_instance.create_object(bucket, public_key, unified_token, object_name, data)
+            api_instance.create_object(bucket, public_key, unified_token, object_name, data, lifetime)
             logging.info("Object created successfully.")
         except Exception as e:
             logging.error(f"Error creating object in Morph storage: {e}")

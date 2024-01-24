@@ -29,6 +29,10 @@ inputs:
     description: Path to the directory that will be used to store the generated report
     required: false
     default: './morph-allure-generated-report'
+  LIFETIME:
+    description: Allure report lifetime, in hours. Zero means no expiration
+    required: false
+    default: 0
 
 outputs:
   ALLURE_REPORT_URL:
@@ -113,9 +117,10 @@ runs:
         GITHUB_ACTION_PATH: ${{ github.action_path }}
         REPORT_NAME: ${{ env.REPORT_NAME }}
         ALLURE_GENERATED_DIR: ${{ inputs.ALLURE_GENERATED_DIR }}
+        LIFETIME: ${{ inputs.LIFETIME }}
       run: |
         source "$GITHUB_ACTION_PATH/venv/bin/activate" && MORPH_USER_PASSWORD=$MORPH_USER_PASSWORD python "$GITHUB_ACTION_PATH/push-to-morph.py" \
         --username "$MORPH_USER_NAME" --url "$MORPH_URL" --port "$MORPH_PORT" --bucket "$ALLURE_REPORT_BUCKET_NAME" \
-        --report "$ALLURE_GENERATED_DIR/$REPORT_NAME"
+        --lifetime "$LIFETIME" --report "$ALLURE_GENERATED_DIR/$REPORT_NAME"
         echo "See report: $MORPH_URL:$MORPH_PORT/api/v0.8/buckets/$ALLURE_REPORT_BUCKET_NAME/objects/$REPORT_NAME/download"
         echo "allure_report_url=$MORPH_URL:$MORPH_PORT/api/v0.8/buckets/$ALLURE_REPORT_BUCKET_NAME/objects/$REPORT_NAME/download" >> $GITHUB_OUTPUT

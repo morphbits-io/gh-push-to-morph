@@ -102,7 +102,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **create_object**
-> create_object(bucket, x_morph_public_key, x_morph_unified_session_token, name, data)
+> create_object(bucket, x_morph_public_key, x_morph_unified_session_token, name, data, lifetime=lifetime)
 
 
 
@@ -134,9 +134,10 @@ with openapi_client.ApiClient(configuration) as api_client:
     x_morph_unified_session_token = 'x_morph_unified_session_token_example' # str | Unified session token.
     name = 'name_example' # str | Object name.
     data = None # bytearray | 
+    lifetime = 56 # int | Object lifetime, in hours. The actual object lifetime will be calculated according network epoch duration. Zero means no expiration. (optional)
 
     try:
-        api_instance.create_object(bucket, x_morph_public_key, x_morph_unified_session_token, name, data)
+        api_instance.create_object(bucket, x_morph_public_key, x_morph_unified_session_token, name, data, lifetime=lifetime)
     except Exception as e:
         print("Exception when calling DefaultApi->create_object: %s\n" % e)
 ```
@@ -153,6 +154,7 @@ Name | Type | Description  | Notes
  **x_morph_unified_session_token** | **str**| Unified session token. | 
  **name** | **str**| Object name. | 
  **data** | **bytearray**|  | 
+ **lifetime** | **int**| Object lifetime, in hours. The actual object lifetime will be calculated according network epoch duration. Zero means no expiration. | [optional] 
 
 ### Return type
 
@@ -399,11 +401,11 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **delete_user**
-> delete_user(user, x_morph_address, x_morph_payload_signature=x_morph_payload_signature)
+> delete_user(user, x_morph_address, x_morph_payload_signature=x_morph_payload_signature, user_management_delete_request=user_management_delete_request)
 
 
 
-Delete a user.
+Delete a user. If superKey passed, the signature should be calculated using body payload, otherwise use username as payload.
 
 ### Example
 
@@ -412,6 +414,7 @@ Delete a user.
 import time
 import os
 import openapi_client
+from openapi_client.models.user_management_delete_request import UserManagementDeleteRequest
 from openapi_client.rest import ApiException
 from pprint import pprint
 
@@ -429,9 +432,10 @@ with openapi_client.ApiClient(configuration) as api_client:
     user = 'mike, superkey or any users name.' # str | User name.
     x_morph_address = 'NSqa4SBqn1h8KTkyVbTSASi3eaHCbEumLv.' # str | Account's address.
     x_morph_payload_signature = 'x_morph_payload_signature_example' # str | Payload signature in base64. If passed, x-morph-payload will be used to execute request in NeoFS. (optional)
+    user_management_delete_request = openapi_client.UserManagementDeleteRequest() # UserManagementDeleteRequest |  (optional)
 
     try:
-        api_instance.delete_user(user, x_morph_address, x_morph_payload_signature=x_morph_payload_signature)
+        api_instance.delete_user(user, x_morph_address, x_morph_payload_signature=x_morph_payload_signature, user_management_delete_request=user_management_delete_request)
     except Exception as e:
         print("Exception when calling DefaultApi->delete_user: %s\n" % e)
 ```
@@ -446,6 +450,7 @@ Name | Type | Description  | Notes
  **user** | **str**| User name. | 
  **x_morph_address** | **str**| Account&#39;s address. | 
  **x_morph_payload_signature** | **str**| Payload signature in base64. If passed, x-morph-payload will be used to execute request in NeoFS. | [optional] 
+ **user_management_delete_request** | [**UserManagementDeleteRequest**](UserManagementDeleteRequest.md)|  | [optional] 
 
 ### Return type
 
@@ -457,7 +462,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: Not defined
 
 ### HTTP response details
