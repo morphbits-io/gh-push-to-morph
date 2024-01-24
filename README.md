@@ -23,9 +23,10 @@ This action was tested on the following runners:
 # Configuration
 
 ## GitHub secrets
-The following sensitive information must be passed as
-[GitHub Actions secrets](https://docs.github.com/en/actions/security-guides/using-secrets-in-github-actions) to protect your data.
-It is very important to use SECRETS and NOT variables, otherwise your username and password will be exposed to the Internet.
+_The following sensitive information must be passed as
+[GitHub Actions secrets](https://docs.github.com/en/actions/security-guides/using-secrets-in-github-actions) to protect your data._
+
+**It is very important to use SECRETS and NOT variables, otherwise your username and password will be exposed to the Internet.**
 
 | Key                   | Value                                     | Required | Default |
 |-----------------------|-------------------------------------------|----------|---------|
@@ -37,9 +38,9 @@ Please keep sensitive data safe.
 ## GitHub environment variables
 
 ### Morph storage network environment variables
-The following variables must be passed as
+_The following variables are expected to be passed via
 [GitHub Actions vars context](https://docs.github.com/en/actions/learn-github-actions/variables#using-the-vars-context-to-access-configuration-variable-values) 
-or [GitHub Actions environment variables](https://docs.github.com/en/actions/learn-github-actions/variables).
+or [GitHub Actions environment variables](https://docs.github.com/en/actions/learn-github-actions/variables)._
 
 Up-to-date information about Morph storage network can be found on [Morph object storage documentation](https://morphbits.io/).
 
@@ -50,7 +51,7 @@ Up-to-date information about Morph storage network can be found on [Morph object
 | `ALLURE_REPORT_BUCKET_NAME` | Bucket name for your Allure report data | **Yes**  | N/A                        |
 
 ### Workflow environment variables
-The following variables must be passed as
+_The following variables are expected to be passed via
 [GitHub Actions vars context](https://docs.github.com/en/actions/learn-github-actions/variables#using-the-vars-context-to-access-configuration-variable-values)
 or [GitHub Actions environment variables](https://docs.github.com/en/actions/learn-github-actions/variables).
 
