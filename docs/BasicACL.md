@@ -20,12 +20,12 @@ json = "{}"
 # create an instance of BasicACL from a JSON string
 basic_acl_instance = BasicACL.from_json(json)
 # print the JSON string representation of the object
-print BasicACL.to_json()
+print(BasicACL.to_json())
 
 # convert the object into a dict
 basic_acl_dict = basic_acl_instance.to_dict()
 # create an instance of BasicACL from a dict
-basic_acl_form_dict = basic_acl.from_dict(basic_acl_dict)
+basic_acl_from_dict = BasicACL.from_dict(basic_acl_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

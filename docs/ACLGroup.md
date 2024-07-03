@@ -20,12 +20,12 @@ json = "{}"
 # create an instance of ACLGroup from a JSON string
 acl_group_instance = ACLGroup.from_json(json)
 # print the JSON string representation of the object
-print ACLGroup.to_json()
+print(ACLGroup.to_json())
 
 # convert the object into a dict
 acl_group_dict = acl_group_instance.to_dict()
 # create an instance of ACLGroup from a dict
-acl_group_form_dict = acl_group.from_dict(acl_group_dict)
+acl_group_from_dict = ACLGroup.from_dict(acl_group_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

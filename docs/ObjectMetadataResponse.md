@@ -21,12 +21,12 @@ json = "{}"
 # create an instance of ObjectMetadataResponse from a JSON string
 object_metadata_response_instance = ObjectMetadataResponse.from_json(json)
 # print the JSON string representation of the object
-print ObjectMetadataResponse.to_json()
+print(ObjectMetadataResponse.to_json())
 
 # convert the object into a dict
 object_metadata_response_dict = object_metadata_response_instance.to_dict()
 # create an instance of ObjectMetadataResponse from a dict
-object_metadata_response_form_dict = object_metadata_response.from_dict(object_metadata_response_dict)
+object_metadata_response_from_dict = ObjectMetadataResponse.from_dict(object_metadata_response_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

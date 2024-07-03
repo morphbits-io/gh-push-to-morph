@@ -17,15 +17,11 @@ import pprint
 import re  # noqa: F401
 import json
 
-
+from pydantic import BaseModel, ConfigDict, Field
 from typing import Any, ClassVar, Dict, List
-from pydantic import BaseModel
-from pydantic import Field
 from openapi_client.models.object import Object
-try:
-    from typing import Self
-except ImportError:
-    from typing_extensions import Self
+from typing import Optional, Set
+from typing_extensions import Self
 
 class ListObjectsResponse(BaseModel):
     """
@@ -34,11 +30,11 @@ class ListObjectsResponse(BaseModel):
     objects: List[Object] = Field(description="Object descriptors.")
     __properties: ClassVar[List[str]] = ["objects"]
 
-    model_config = {
-        "populate_by_name": True,
-        "validate_assignment": True,
-        "protected_namespaces": (),
-    }
+    model_config = ConfigDict(
+        populate_by_name=True,
+        validate_assignment=True,
+        protected_namespaces=(),
+    )
 
 
     def to_str(self) -> str:
@@ -51,7 +47,7 @@ class ListObjectsResponse(BaseModel):
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> Self:
+    def from_json(cls, json_str: str) -> Optional[Self]:
         """Create an instance of ListObjectsResponse from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
@@ -65,10 +61,12 @@ class ListObjectsResponse(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
+        excluded_fields: Set[str] = set([
+        ])
+
         _dict = self.model_dump(
             by_alias=True,
-            exclude={
-            },
+            exclude=excluded_fields,
             exclude_none=True,
         )
         # override the default output from pydantic by calling `to_dict()` of each item in objects (list)
@@ -81,7 +79,7 @@ class ListObjectsResponse(BaseModel):
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Dict) -> Self:
+    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
         """Create an instance of ListObjectsResponse from a dict"""
         if obj is None:
             return None
@@ -90,7 +88,7 @@ class ListObjectsResponse(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "objects": [Object.from_dict(_item) for _item in obj.get("objects")] if obj.get("objects") is not None else None
+            "objects": [Object.from_dict(_item) for _item in obj["objects"]] if obj.get("objects") is not None else None
         })
         return _obj
 

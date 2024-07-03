@@ -20,12 +20,12 @@ json = "{}"
 # create an instance of MetricsNode from a JSON string
 metrics_node_instance = MetricsNode.from_json(json)
 # print the JSON string representation of the object
-print MetricsNode.to_json()
+print(MetricsNode.to_json())
 
 # convert the object into a dict
 metrics_node_dict = metrics_node_instance.to_dict()
 # create an instance of MetricsNode from a dict
-metrics_node_form_dict = metrics_node.from_dict(metrics_node_dict)
+metrics_node_from_dict = MetricsNode.from_dict(metrics_node_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

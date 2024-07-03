@@ -1,28 +1,54 @@
 # openapi_client.DefaultApi
 
-All URIs are relative to *http://localhost/api/v0.8*
+All URIs are relative to */api*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**create_bucket**](DefaultApi.md#create_bucket) | **POST** /buckets | 
-[**create_object**](DefaultApi.md#create_object) | **POST** /buckets/{bucket}/objects | 
-[**create_session**](DefaultApi.md#create_session) | **POST** /session/{bucket}/object | 
-[**delete_bucket**](DefaultApi.md#delete_bucket) | **DELETE** /buckets/{bucket} | 
-[**delete_object**](DefaultApi.md#delete_object) | **DELETE** /buckets/{bucket}/objects/{object} | 
-[**delete_user**](DefaultApi.md#delete_user) | **DELETE** /users/{user}/management | 
-[**download_object_data**](DefaultApi.md#download_object_data) | **GET** /buckets/{bucket}/objects/{object}/download | 
-[**get_bucket**](DefaultApi.md#get_bucket) | **GET** /buckets/{bucket} | 
-[**get_metrics**](DefaultApi.md#get_metrics) | **GET** /metrics | 
-[**get_user**](DefaultApi.md#get_user) | **GET** /users/{user}/management | 
-[**get_user_by_address**](DefaultApi.md#get_user_by_address) | **GET** /users/searchByAddress/{address} | 
-[**get_user_list**](DefaultApi.md#get_user_list) | **GET** /users/list | 
-[**list_buckets**](DefaultApi.md#list_buckets) | **GET** /buckets | 
-[**list_objects**](DefaultApi.md#list_objects) | **GET** /buckets/{bucket}/objects | 
-[**object_metadata**](DefaultApi.md#object_metadata) | **GET** /buckets/{bucket}/objects/{object}/metadata | 
-[**save_user**](DefaultApi.md#save_user) | **POST** /users/{user}/management | 
-[**set_eacl**](DefaultApi.md#set_eacl) | **POST** /eacl/{bucket} | 
-[**store_session**](DefaultApi.md#store_session) | **POST** /session/store | 
-[**top_up_storage_node**](DefaultApi.md#top_up_storage_node) | **POST** /cluster/topup | 
+[**create_bucket**](DefaultApi.md#create_bucket) | **POST** /v0.8/buckets | 
+[**create_object**](DefaultApi.md#create_object) | **POST** /v0.8/buckets/{bucket}/objects | 
+[**create_session**](DefaultApi.md#create_session) | **POST** /v0.8/session/{bucket}/object | 
+[**delete_bucket**](DefaultApi.md#delete_bucket) | **DELETE** /v0.8/buckets/{bucket} | 
+[**delete_object**](DefaultApi.md#delete_object) | **DELETE** /v0.8/buckets/{bucket}/objects/{object} | 
+[**delete_user**](DefaultApi.md#delete_user) | **DELETE** /v0.8/users/{user}/management | 
+[**download_object_data**](DefaultApi.md#download_object_data) | **GET** /v0.8/buckets/{bucket}/objects/{object}/download | 
+[**get_bucket**](DefaultApi.md#get_bucket) | **GET** /v0.8/buckets/{bucket} | 
+[**get_default_storage_quota**](DefaultApi.md#get_default_storage_quota) | **GET** /v0.8/management/quota | 
+[**get_metrics**](DefaultApi.md#get_metrics) | **GET** /v0.8/metrics | 
+[**get_user**](DefaultApi.md#get_user) | **GET** /v0.8/users/{user}/management | 
+[**get_user_by_address**](DefaultApi.md#get_user_by_address) | **GET** /v0.8/users/searchByAddress/{address} | 
+[**get_user_list**](DefaultApi.md#get_user_list) | **GET** /v0.8/users/list | 
+[**list_buckets**](DefaultApi.md#list_buckets) | **GET** /v0.8/buckets | 
+[**list_objects**](DefaultApi.md#list_objects) | **GET** /v0.8/buckets/{bucket}/objects | 
+[**object_metadata**](DefaultApi.md#object_metadata) | **GET** /v0.8/buckets/{bucket}/objects/{object}/metadata | 
+[**save_user**](DefaultApi.md#save_user) | **POST** /v0.8/users/{user}/management | 
+[**set_default_storage_quota**](DefaultApi.md#set_default_storage_quota) | **POST** /v0.8/management/quota | 
+[**set_eacl**](DefaultApi.md#set_eacl) | **POST** /v0.8/eacl/{bucket} | 
+[**set_storage_quota**](DefaultApi.md#set_storage_quota) | **POST** /v0.8/users/{user}/management/quota | 
+[**store_session**](DefaultApi.md#store_session) | **POST** /v0.8/session/store | 
+[**top_up_storage_node**](DefaultApi.md#top_up_storage_node) | **POST** /v0.8/cluster/topup | 
+[**v1_apply_sn_action**](DefaultApi.md#v1_apply_sn_action) | **POST** /v1/cluster/storage-node | 
+[**v1_create_bucket**](DefaultApi.md#v1_create_bucket) | **POST** /v1/buckets | 
+[**v1_create_object**](DefaultApi.md#v1_create_object) | **POST** /v1/buckets/{bucket}/objects | 
+[**v1_delete_bucket**](DefaultApi.md#v1_delete_bucket) | **DELETE** /v1/buckets/{bucket} | 
+[**v1_delete_object**](DefaultApi.md#v1_delete_object) | **DELETE** /v1/buckets/{bucket}/objects/{object} | 
+[**v1_delete_user**](DefaultApi.md#v1_delete_user) | **DELETE** /v1/users/{user} | 
+[**v1_download_object**](DefaultApi.md#v1_download_object) | **GET** /v1/buckets/{bucket}/objects/{object} | 
+[**v1_get_bucket**](DefaultApi.md#v1_get_bucket) | **GET** /v1/buckets/{bucket} | 
+[**v1_get_default_storage_quota**](DefaultApi.md#v1_get_default_storage_quota) | **GET** /v1/cluster/default-quota | 
+[**v1_get_metrics**](DefaultApi.md#v1_get_metrics) | **GET** /v1/cluster/metrics | 
+[**v1_get_user**](DefaultApi.md#v1_get_user) | **GET** /v1/users/{user} | 
+[**v1_get_user_list**](DefaultApi.md#v1_get_user_list) | **GET** /v1/users | 
+[**v1_initial_registration**](DefaultApi.md#v1_initial_registration) | **POST** /v1/initial-registration | 
+[**v1_list_buckets**](DefaultApi.md#v1_list_buckets) | **GET** /v1/buckets | 
+[**v1_list_objects**](DefaultApi.md#v1_list_objects) | **GET** /v1/buckets/{bucket}/objects | 
+[**v1_login**](DefaultApi.md#v1_login) | **POST** /v1/login | 
+[**v1_object_metadata**](DefaultApi.md#v1_object_metadata) | **GET** /v1/buckets/{bucket}/objects/{object}/metadata | 
+[**v1_register_user**](DefaultApi.md#v1_register_user) | **POST** /v1/users/{user} | 
+[**v1_s3_get_access_token**](DefaultApi.md#v1_s3_get_access_token) | **GET** /v1/s3/tokens | 
+[**v1_set_default_storage_quota**](DefaultApi.md#v1_set_default_storage_quota) | **POST** /v1/cluster/default-quota | 
+[**v1_set_eacl**](DefaultApi.md#v1_set_eacl) | **POST** /v1/buckets/{bucket}/eacl | 
+[**v1_set_user_storage_quota**](DefaultApi.md#v1_set_user_storage_quota) | **POST** /v1/users/{user}/quota | 
+[**v1_update_user**](DefaultApi.md#v1_update_user) | **PUT** /v1/users/{user} | 
 
 
 # **create_bucket**
@@ -36,17 +62,15 @@ Create a new bucket.
 
 
 ```python
-import time
-import os
 import openapi_client
 from openapi_client.models.create_bucket_request import CreateBucketRequest
 from openapi_client.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to http://localhost/api/v0.8
+# Defining the host is optional and defaults to /api
 # See configuration.py for a list of all supported configuration parameters.
 configuration = openapi_client.Configuration(
-    host = "http://localhost/api/v0.8"
+    host = "/api"
 )
 
 
@@ -112,16 +136,14 @@ Create a new object in the bucket.
 
 
 ```python
-import time
-import os
 import openapi_client
 from openapi_client.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to http://localhost/api/v0.8
+# Defining the host is optional and defaults to /api
 # See configuration.py for a list of all supported configuration parameters.
 configuration = openapi_client.Configuration(
-    host = "http://localhost/api/v0.8"
+    host = "/api"
 )
 
 
@@ -193,17 +215,15 @@ Create session tokens for object operations.
 
 
 ```python
-import time
-import os
 import openapi_client
 from openapi_client.models.session_token import SessionToken
 from openapi_client.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to http://localhost/api/v0.8
+# Defining the host is optional and defaults to /api
 # See configuration.py for a list of all supported configuration parameters.
 configuration = openapi_client.Configuration(
-    host = "http://localhost/api/v0.8"
+    host = "/api"
 )
 
 
@@ -264,16 +284,14 @@ Delete bucket from the system.
 
 
 ```python
-import time
-import os
 import openapi_client
 from openapi_client.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to http://localhost/api/v0.8
+# Defining the host is optional and defaults to /api
 # See configuration.py for a list of all supported configuration parameters.
 configuration = openapi_client.Configuration(
-    host = "http://localhost/api/v0.8"
+    host = "/api"
 )
 
 
@@ -338,16 +356,14 @@ Delete object from the bucket.
 
 
 ```python
-import time
-import os
 import openapi_client
 from openapi_client.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to http://localhost/api/v0.8
+# Defining the host is optional and defaults to /api
 # See configuration.py for a list of all supported configuration parameters.
 configuration = openapi_client.Configuration(
-    host = "http://localhost/api/v0.8"
+    host = "/api"
 )
 
 
@@ -411,17 +427,15 @@ Delete a user. If superKey passed, the signature should be calculated using body
 
 
 ```python
-import time
-import os
 import openapi_client
 from openapi_client.models.user_management_delete_request import UserManagementDeleteRequest
 from openapi_client.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to http://localhost/api/v0.8
+# Defining the host is optional and defaults to /api
 # See configuration.py for a list of all supported configuration parameters.
 configuration = openapi_client.Configuration(
-    host = "http://localhost/api/v0.8"
+    host = "/api"
 )
 
 
@@ -429,7 +443,7 @@ configuration = openapi_client.Configuration(
 with openapi_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = openapi_client.DefaultApi(api_client)
-    user = 'mike, superkey or any users name.' # str | User name.
+    user = 'mike, admin or any users name.' # str | User name.
     x_morph_address = 'NSqa4SBqn1h8KTkyVbTSASi3eaHCbEumLv.' # str | Account's address.
     x_morph_payload_signature = 'x_morph_payload_signature_example' # str | Payload signature in base64. If passed, x-morph-payload will be used to execute request in NeoFS. (optional)
     user_management_delete_request = openapi_client.UserManagementDeleteRequest() # UserManagementDeleteRequest |  (optional)
@@ -486,16 +500,14 @@ Download the object data.
 
 
 ```python
-import time
-import os
 import openapi_client
 from openapi_client.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to http://localhost/api/v0.8
+# Defining the host is optional and defaults to /api
 # See configuration.py for a list of all supported configuration parameters.
 configuration = openapi_client.Configuration(
-    host = "http://localhost/api/v0.8"
+    host = "/api"
 )
 
 
@@ -561,17 +573,15 @@ Get information about the bucket by name.
 
 
 ```python
-import time
-import os
 import openapi_client
 from openapi_client.models.get_bucket_response import GetBucketResponse
 from openapi_client.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to http://localhost/api/v0.8
+# Defining the host is optional and defaults to /api
 # See configuration.py for a list of all supported configuration parameters.
 configuration = openapi_client.Configuration(
-    host = "http://localhost/api/v0.8"
+    host = "/api"
 )
 
 
@@ -621,6 +631,69 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **get_default_storage_quota**
+> GetDefaultStorageQuotaResponse get_default_storage_quota()
+
+
+
+Get default storage quota for user.
+
+### Example
+
+
+```python
+import openapi_client
+from openapi_client.models.get_default_storage_quota_response import GetDefaultStorageQuotaResponse
+from openapi_client.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to /api
+# See configuration.py for a list of all supported configuration parameters.
+configuration = openapi_client.Configuration(
+    host = "/api"
+)
+
+
+# Enter a context with an instance of the API client
+with openapi_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = openapi_client.DefaultApi(api_client)
+
+    try:
+        api_response = api_instance.get_default_storage_quota()
+        print("The response of DefaultApi->get_default_storage_quota:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling DefaultApi->get_default_storage_quota: %s\n" % e)
+```
+
+
+
+### Parameters
+
+This endpoint does not need any parameter.
+
+### Return type
+
+[**GetDefaultStorageQuotaResponse**](GetDefaultStorageQuotaResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Ok. |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **get_metrics**
 > GetMetricsResponse get_metrics()
 
@@ -632,17 +705,15 @@ Scrape system metrics.
 
 
 ```python
-import time
-import os
 import openapi_client
 from openapi_client.models.get_metrics_response import GetMetricsResponse
 from openapi_client.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to http://localhost/api/v0.8
+# Defining the host is optional and defaults to /api
 # See configuration.py for a list of all supported configuration parameters.
 configuration = openapi_client.Configuration(
-    host = "http://localhost/api/v0.8"
+    host = "/api"
 )
 
 
@@ -697,17 +768,15 @@ Get user or superkey file. File name must be without extension.
 
 
 ```python
-import time
-import os
 import openapi_client
 from openapi_client.models.get_user_response import GetUserResponse
 from openapi_client.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to http://localhost/api/v0.8
+# Defining the host is optional and defaults to /api
 # See configuration.py for a list of all supported configuration parameters.
 configuration = openapi_client.Configuration(
-    host = "http://localhost/api/v0.8"
+    host = "/api"
 )
 
 
@@ -715,7 +784,7 @@ configuration = openapi_client.Configuration(
 with openapi_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = openapi_client.DefaultApi(api_client)
-    user = 'mike, superkey or any users name.' # str | User name.
+    user = 'mike, admin or any users name.' # str | User name.
 
     try:
         api_response = api_instance.get_user(user)
@@ -768,17 +837,15 @@ Get user key by owner address.
 
 
 ```python
-import time
-import os
 import openapi_client
 from openapi_client.models.get_user_response import GetUserResponse
 from openapi_client.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to http://localhost/api/v0.8
+# Defining the host is optional and defaults to /api
 # See configuration.py for a list of all supported configuration parameters.
 configuration = openapi_client.Configuration(
-    host = "http://localhost/api/v0.8"
+    host = "/api"
 )
 
 
@@ -839,17 +906,15 @@ Get user list.
 
 
 ```python
-import time
-import os
 import openapi_client
 from openapi_client.models.get_user_list_response import GetUserListResponse
 from openapi_client.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to http://localhost/api/v0.8
+# Defining the host is optional and defaults to /api
 # See configuration.py for a list of all supported configuration parameters.
 configuration = openapi_client.Configuration(
-    host = "http://localhost/api/v0.8"
+    host = "/api"
 )
 
 
@@ -904,17 +969,15 @@ List all buckets in the system.
 
 
 ```python
-import time
-import os
 import openapi_client
 from openapi_client.models.list_buckets_response import ListBucketsResponse
 from openapi_client.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to http://localhost/api/v0.8
+# Defining the host is optional and defaults to /api
 # See configuration.py for a list of all supported configuration parameters.
 configuration = openapi_client.Configuration(
-    host = "http://localhost/api/v0.8"
+    host = "/api"
 )
 
 
@@ -973,17 +1036,15 @@ List all objects in the bucket with brief metadata.
 
 
 ```python
-import time
-import os
 import openapi_client
 from openapi_client.models.list_objects_response import ListObjectsResponse
 from openapi_client.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to http://localhost/api/v0.8
+# Defining the host is optional and defaults to /api
 # See configuration.py for a list of all supported configuration parameters.
 configuration = openapi_client.Configuration(
-    host = "http://localhost/api/v0.8"
+    host = "/api"
 )
 
 
@@ -1047,17 +1108,15 @@ Get the object metadata.
 
 
 ```python
-import time
-import os
 import openapi_client
 from openapi_client.models.object_metadata_response import ObjectMetadataResponse
 from openapi_client.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to http://localhost/api/v0.8
+# Defining the host is optional and defaults to /api
 # See configuration.py for a list of all supported configuration parameters.
 configuration = openapi_client.Configuration(
-    host = "http://localhost/api/v0.8"
+    host = "/api"
 )
 
 
@@ -1123,17 +1182,15 @@ Register user or change user role.
 
 
 ```python
-import time
-import os
 import openapi_client
 from openapi_client.models.user_management_request import UserManagementRequest
 from openapi_client.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to http://localhost/api/v0.8
+# Defining the host is optional and defaults to /api
 # See configuration.py for a list of all supported configuration parameters.
 configuration = openapi_client.Configuration(
-    host = "http://localhost/api/v0.8"
+    host = "/api"
 )
 
 
@@ -1142,7 +1199,7 @@ with openapi_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = openapi_client.DefaultApi(api_client)
     x_morph_address = 'NSqa4SBqn1h8KTkyVbTSASi3eaHCbEumLv.' # str | Account's address.
-    user = 'mike, superkey or any users name.' # str | User name.
+    user = 'mike, admin or any users name.' # str | User name.
     x_morph_payload_signature = 'x_morph_payload_signature_example' # str | Payload signature in base64. If passed, x-morph-payload will be used to execute request in NeoFS. (optional)
     user_management_request = openapi_client.UserManagementRequest() # UserManagementRequest |  (optional)
 
@@ -1186,6 +1243,76 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **set_default_storage_quota**
+> set_default_storage_quota(x_morph_address, x_morph_payload_signature, set_default_storage_quota_request=set_default_storage_quota_request)
+
+
+
+Set default storage quota for user.
+
+### Example
+
+
+```python
+import openapi_client
+from openapi_client.models.set_default_storage_quota_request import SetDefaultStorageQuotaRequest
+from openapi_client.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to /api
+# See configuration.py for a list of all supported configuration parameters.
+configuration = openapi_client.Configuration(
+    host = "/api"
+)
+
+
+# Enter a context with an instance of the API client
+with openapi_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = openapi_client.DefaultApi(api_client)
+    x_morph_address = 'NSqa4SBqn1h8KTkyVbTSASi3eaHCbEumLv.' # str | Account's address.
+    x_morph_payload_signature = 'x_morph_payload_signature_example' # str | Payload signature in base64. If passed, x-morph-payload will be used to execute request in NeoFS.
+    set_default_storage_quota_request = openapi_client.SetDefaultStorageQuotaRequest() # SetDefaultStorageQuotaRequest |  (optional)
+
+    try:
+        api_instance.set_default_storage_quota(x_morph_address, x_morph_payload_signature, set_default_storage_quota_request=set_default_storage_quota_request)
+    except Exception as e:
+        print("Exception when calling DefaultApi->set_default_storage_quota: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **x_morph_address** | **str**| Account&#39;s address. | 
+ **x_morph_payload_signature** | **str**| Payload signature in base64. If passed, x-morph-payload will be used to execute request in NeoFS. | 
+ **set_default_storage_quota_request** | [**SetDefaultStorageQuotaRequest**](SetDefaultStorageQuotaRequest.md)|  | [optional] 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: Not defined
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Quota changed. |  -  |
+**400** | Passed data is invalid. |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **set_eacl**
 > set_eacl(bucket, x_morph_public_key=x_morph_public_key, x_morph_payload=x_morph_payload, x_morph_payload_signature=x_morph_payload_signature, set_eacl_request=set_eacl_request)
 
@@ -1197,17 +1324,15 @@ Set EACL to the bucket.
 
 
 ```python
-import time
-import os
 import openapi_client
 from openapi_client.models.set_eacl_request import SetEaclRequest
 from openapi_client.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to http://localhost/api/v0.8
+# Defining the host is optional and defaults to /api
 # See configuration.py for a list of all supported configuration parameters.
 configuration = openapi_client.Configuration(
-    host = "http://localhost/api/v0.8"
+    host = "/api"
 )
 
 
@@ -1264,6 +1389,78 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **set_storage_quota**
+> set_storage_quota(x_morph_address, x_morph_payload_signature, user, user_change_storage_quota_request=user_change_storage_quota_request)
+
+
+
+Change user storage quota.
+
+### Example
+
+
+```python
+import openapi_client
+from openapi_client.models.user_change_storage_quota_request import UserChangeStorageQuotaRequest
+from openapi_client.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to /api
+# See configuration.py for a list of all supported configuration parameters.
+configuration = openapi_client.Configuration(
+    host = "/api"
+)
+
+
+# Enter a context with an instance of the API client
+with openapi_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = openapi_client.DefaultApi(api_client)
+    x_morph_address = 'NSqa4SBqn1h8KTkyVbTSASi3eaHCbEumLv.' # str | Account's address.
+    x_morph_payload_signature = 'x_morph_payload_signature_example' # str | Payload signature in base64. If passed, x-morph-payload will be used to execute request in NeoFS.
+    user = 'mike, admin or any users name.' # str | User name.
+    user_change_storage_quota_request = openapi_client.UserChangeStorageQuotaRequest() # UserChangeStorageQuotaRequest |  (optional)
+
+    try:
+        api_instance.set_storage_quota(x_morph_address, x_morph_payload_signature, user, user_change_storage_quota_request=user_change_storage_quota_request)
+    except Exception as e:
+        print("Exception when calling DefaultApi->set_storage_quota: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **x_morph_address** | **str**| Account&#39;s address. | 
+ **x_morph_payload_signature** | **str**| Payload signature in base64. If passed, x-morph-payload will be used to execute request in NeoFS. | 
+ **user** | **str**| User name. | 
+ **user_change_storage_quota_request** | [**UserChangeStorageQuotaRequest**](UserChangeStorageQuotaRequest.md)|  | [optional] 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: Not defined
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**201** | User quota successfully changed. |  -  |
+**400** | Passed data is invalid. |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **store_session**
 > StoreSessionResponse store_session(x_morph_public_key, signed_session_token=signed_session_token)
 
@@ -1275,18 +1472,16 @@ Exchange object operations session tokens for a unified one. It will be used ins
 
 
 ```python
-import time
-import os
 import openapi_client
 from openapi_client.models.signed_session_token import SignedSessionToken
 from openapi_client.models.store_session_response import StoreSessionResponse
 from openapi_client.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to http://localhost/api/v0.8
+# Defining the host is optional and defaults to /api
 # See configuration.py for a list of all supported configuration parameters.
 configuration = openapi_client.Configuration(
-    host = "http://localhost/api/v0.8"
+    host = "/api"
 )
 
 
@@ -1338,7 +1533,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **top_up_storage_node**
-> top_up_storage_node(storage_node_top_up_account=storage_node_top_up_account)
+> top_up_storage_node(storage_node_address=storage_node_address)
 
 
 
@@ -1348,17 +1543,15 @@ Top up storage node account with minimal deposit to pay network candidate fee.
 
 
 ```python
-import time
-import os
 import openapi_client
-from openapi_client.models.storage_node_top_up_account import StorageNodeTopUpAccount
+from openapi_client.models.storage_node_address import StorageNodeAddress
 from openapi_client.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to http://localhost/api/v0.8
+# Defining the host is optional and defaults to /api
 # See configuration.py for a list of all supported configuration parameters.
 configuration = openapi_client.Configuration(
-    host = "http://localhost/api/v0.8"
+    host = "/api"
 )
 
 
@@ -1366,10 +1559,10 @@ configuration = openapi_client.Configuration(
 with openapi_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = openapi_client.DefaultApi(api_client)
-    storage_node_top_up_account = openapi_client.StorageNodeTopUpAccount() # StorageNodeTopUpAccount |  (optional)
+    storage_node_address = openapi_client.StorageNodeAddress() # StorageNodeAddress |  (optional)
 
     try:
-        api_instance.top_up_storage_node(storage_node_top_up_account=storage_node_top_up_account)
+        api_instance.top_up_storage_node(storage_node_address=storage_node_address)
     except Exception as e:
         print("Exception when calling DefaultApi->top_up_storage_node: %s\n" % e)
 ```
@@ -1381,7 +1574,7 @@ with openapi_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **storage_node_top_up_account** | [**StorageNodeTopUpAccount**](StorageNodeTopUpAccount.md)|  | [optional] 
+ **storage_node_address** | [**StorageNodeAddress**](StorageNodeAddress.md)|  | [optional] 
 
 ### Return type
 
@@ -1403,6 +1596,1614 @@ No authorization required
 **200** | Balance successfully recharged. |  -  |
 **400** | Address is invalid. |  -  |
 **500** | Address topping-up is failed. |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **v1_apply_sn_action**
+> v1_apply_sn_action(x_morph_session_token, x_morph_action, storage_node_address=storage_node_address)
+
+
+
+Apply one of the actions on the Storage Node. See available actions in the parameters.
+
+### Example
+
+
+```python
+import openapi_client
+from openapi_client.models.storage_node_address import StorageNodeAddress
+from openapi_client.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to /api
+# See configuration.py for a list of all supported configuration parameters.
+configuration = openapi_client.Configuration(
+    host = "/api"
+)
+
+
+# Enter a context with an instance of the API client
+with openapi_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = openapi_client.DefaultApi(api_client)
+    x_morph_session_token = 'x_morph_session_token_example' # str | Session token.
+    x_morph_action = 'grant-access' # str | An action to apply to the storage node. The only available action for now is \"grant-access\", which grants access for a storage node to become a network candidate.
+    storage_node_address = openapi_client.StorageNodeAddress() # StorageNodeAddress |  (optional)
+
+    try:
+        api_instance.v1_apply_sn_action(x_morph_session_token, x_morph_action, storage_node_address=storage_node_address)
+    except Exception as e:
+        print("Exception when calling DefaultApi->v1_apply_sn_action: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **x_morph_session_token** | **str**| Session token. | 
+ **x_morph_action** | **str**| An action to apply to the storage node. The only available action for now is \&quot;grant-access\&quot;, which grants access for a storage node to become a network candidate. | 
+ **storage_node_address** | [**StorageNodeAddress**](StorageNodeAddress.md)|  | [optional] 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: Not defined
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Action successfully performed. |  -  |
+**400** | Address is empty. |  -  |
+**403** | Insufficient rights. |  -  |
+**500** | Unable to perform requested action. |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **v1_create_bucket**
+> v1_create_bucket(x_morph_session_token, create_bucket_request=create_bucket_request)
+
+
+
+Create a new bucket.
+
+### Example
+
+
+```python
+import openapi_client
+from openapi_client.models.create_bucket_request import CreateBucketRequest
+from openapi_client.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to /api
+# See configuration.py for a list of all supported configuration parameters.
+configuration = openapi_client.Configuration(
+    host = "/api"
+)
+
+
+# Enter a context with an instance of the API client
+with openapi_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = openapi_client.DefaultApi(api_client)
+    x_morph_session_token = 'x_morph_session_token_example' # str | Session token.
+    create_bucket_request = openapi_client.CreateBucketRequest() # CreateBucketRequest | Parameters of the new bucket in JSON. Required only for payload generation request. (optional)
+
+    try:
+        api_instance.v1_create_bucket(x_morph_session_token, create_bucket_request=create_bucket_request)
+    except Exception as e:
+        print("Exception when calling DefaultApi->v1_create_bucket: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **x_morph_session_token** | **str**| Session token. | 
+ **create_bucket_request** | [**CreateBucketRequest**](CreateBucketRequest.md)| Parameters of the new bucket in JSON. Required only for payload generation request. | [optional] 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: Not defined
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**201** | Bucket successfully created. |  -  |
+**400** | At least one bucket parameter is invalid (e.g. required parameter is missing). |  -  |
+**409** | Bucket already exists. |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **v1_create_object**
+> v1_create_object(bucket, x_morph_session_token, name, data, lifetime=lifetime)
+
+
+
+Create a new object in the bucket.
+
+### Example
+
+
+```python
+import openapi_client
+from openapi_client.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to /api
+# See configuration.py for a list of all supported configuration parameters.
+configuration = openapi_client.Configuration(
+    host = "/api"
+)
+
+
+# Enter a context with an instance of the API client
+with openapi_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = openapi_client.DefaultApi(api_client)
+    bucket = 'bucket_example' # str | Bucket name.
+    x_morph_session_token = 'x_morph_session_token_example' # str | Session token.
+    name = 'name_example' # str | Object name.
+    data = None # bytearray | 
+    lifetime = 56 # int | Object lifetime, in hours. The actual object lifetime will be calculated according network epoch duration. Zero means no expiration. (optional)
+
+    try:
+        api_instance.v1_create_object(bucket, x_morph_session_token, name, data, lifetime=lifetime)
+    except Exception as e:
+        print("Exception when calling DefaultApi->v1_create_object: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **bucket** | **str**| Bucket name. | 
+ **x_morph_session_token** | **str**| Session token. | 
+ **name** | **str**| Object name. | 
+ **data** | **bytearray**|  | 
+ **lifetime** | **int**| Object lifetime, in hours. The actual object lifetime will be calculated according network epoch duration. Zero means no expiration. | [optional] 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: multipart/form-data
+ - **Accept**: Not defined
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**201** | Object successfully created. |  -  |
+**400** | At least one object parameter is invalid (e.g. required parameter is missing). |  -  |
+**401** | Authentication token is invalid, missing or expired. |  -  |
+**403** | User is not authorized to make this action in the bucket |  -  |
+**409** | Object already exists. |  -  |
+**507** | User doesn&#39;t have enough space. |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **v1_delete_bucket**
+> v1_delete_bucket(bucket, x_morph_session_token)
+
+
+
+Delete bucket from the system.
+
+### Example
+
+
+```python
+import openapi_client
+from openapi_client.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to /api
+# See configuration.py for a list of all supported configuration parameters.
+configuration = openapi_client.Configuration(
+    host = "/api"
+)
+
+
+# Enter a context with an instance of the API client
+with openapi_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = openapi_client.DefaultApi(api_client)
+    bucket = 'bucket_example' # str | Bucket name.
+    x_morph_session_token = 'x_morph_session_token_example' # str | Session token.
+
+    try:
+        api_instance.v1_delete_bucket(bucket, x_morph_session_token)
+    except Exception as e:
+        print("Exception when calling DefaultApi->v1_delete_bucket: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **bucket** | **str**| Bucket name. | 
+ **x_morph_session_token** | **str**| Session token. | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: Not defined
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Bucket successfully removed. |  -  |
+**404** | Bucket not found (not created or already removed). |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **v1_delete_object**
+> v1_delete_object(bucket, object, x_morph_session_token)
+
+
+
+Delete object from the bucket.
+
+### Example
+
+
+```python
+import openapi_client
+from openapi_client.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to /api
+# See configuration.py for a list of all supported configuration parameters.
+configuration = openapi_client.Configuration(
+    host = "/api"
+)
+
+
+# Enter a context with an instance of the API client
+with openapi_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = openapi_client.DefaultApi(api_client)
+    bucket = 'bucket_example' # str | Bucket name.
+    object = 'object_example' # str | Object name.
+    x_morph_session_token = 'x_morph_session_token_example' # str | Session token.
+
+    try:
+        api_instance.v1_delete_object(bucket, object, x_morph_session_token)
+    except Exception as e:
+        print("Exception when calling DefaultApi->v1_delete_object: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **bucket** | **str**| Bucket name. | 
+ **object** | **str**| Object name. | 
+ **x_morph_session_token** | **str**| Session token. | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: Not defined
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Object successfully removed. |  -  |
+**401** | Authentication token is invalid, missing or expired. |  -  |
+**403** | User is not authorized to make this action in the bucket |  -  |
+**404** | Bucket or object not found (not created or already removed). |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **v1_delete_user**
+> v1_delete_user(user, x_morph_session_token)
+
+
+
+Delete a user.
+
+### Example
+
+
+```python
+import openapi_client
+from openapi_client.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to /api
+# See configuration.py for a list of all supported configuration parameters.
+configuration = openapi_client.Configuration(
+    host = "/api"
+)
+
+
+# Enter a context with an instance of the API client
+with openapi_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = openapi_client.DefaultApi(api_client)
+    user = 'mike, admin or any users name.' # str | User name.
+    x_morph_session_token = 'x_morph_session_token_example' # str | Session token.
+
+    try:
+        api_instance.v1_delete_user(user, x_morph_session_token)
+    except Exception as e:
+        print("Exception when calling DefaultApi->v1_delete_user: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **user** | **str**| User name. | 
+ **x_morph_session_token** | **str**| Session token. | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: Not defined
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | User successfully deleted. |  -  |
+**400** | Passed user name is invalid. |  -  |
+**403** | Insufficient rights to execute request. |  -  |
+**404** | User not found. |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **v1_download_object**
+> bytearray v1_download_object(bucket, object, x_morph_session_token=x_morph_session_token)
+
+
+
+Download the object data.
+
+### Example
+
+
+```python
+import openapi_client
+from openapi_client.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to /api
+# See configuration.py for a list of all supported configuration parameters.
+configuration = openapi_client.Configuration(
+    host = "/api"
+)
+
+
+# Enter a context with an instance of the API client
+with openapi_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = openapi_client.DefaultApi(api_client)
+    bucket = 'bucket_example' # str | Bucket name.
+    object = 'object_example' # str | Object name.
+    x_morph_session_token = 'x_morph_session_token_example' # str | Session token. (optional)
+
+    try:
+        api_response = api_instance.v1_download_object(bucket, object, x_morph_session_token=x_morph_session_token)
+        print("The response of DefaultApi->v1_download_object:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling DefaultApi->v1_download_object: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **bucket** | **str**| Bucket name. | 
+ **object** | **str**| Object name. | 
+ **x_morph_session_token** | **str**| Session token. | [optional] 
+
+### Return type
+
+**bytearray**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/octet-stream
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+**401** | Authentication token is invalid, missing or expired. |  -  |
+**403** | User is not authorized to make this action in the bucket |  -  |
+**404** | Bucket or object not found. |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **v1_get_bucket**
+> GetBucketResponse v1_get_bucket(bucket)
+
+
+
+Get information about the bucket by name.
+
+### Example
+
+
+```python
+import openapi_client
+from openapi_client.models.get_bucket_response import GetBucketResponse
+from openapi_client.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to /api
+# See configuration.py for a list of all supported configuration parameters.
+configuration = openapi_client.Configuration(
+    host = "/api"
+)
+
+
+# Enter a context with an instance of the API client
+with openapi_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = openapi_client.DefaultApi(api_client)
+    bucket = 'bucket_example' # str | Bucket name.
+
+    try:
+        api_response = api_instance.v1_get_bucket(bucket)
+        print("The response of DefaultApi->v1_get_bucket:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling DefaultApi->v1_get_bucket: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **bucket** | **str**| Bucket name. | 
+
+### Return type
+
+[**GetBucketResponse**](GetBucketResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+**400** | Bucket reference is missing or invalid. |  -  |
+**404** | Bucket not found. |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **v1_get_default_storage_quota**
+> GetDefaultStorageQuotaResponse v1_get_default_storage_quota()
+
+
+
+Get default storage quota for a new user.
+
+### Example
+
+
+```python
+import openapi_client
+from openapi_client.models.get_default_storage_quota_response import GetDefaultStorageQuotaResponse
+from openapi_client.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to /api
+# See configuration.py for a list of all supported configuration parameters.
+configuration = openapi_client.Configuration(
+    host = "/api"
+)
+
+
+# Enter a context with an instance of the API client
+with openapi_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = openapi_client.DefaultApi(api_client)
+
+    try:
+        api_response = api_instance.v1_get_default_storage_quota()
+        print("The response of DefaultApi->v1_get_default_storage_quota:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling DefaultApi->v1_get_default_storage_quota: %s\n" % e)
+```
+
+
+
+### Parameters
+
+This endpoint does not need any parameter.
+
+### Return type
+
+[**GetDefaultStorageQuotaResponse**](GetDefaultStorageQuotaResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Ok. |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **v1_get_metrics**
+> GetMetricsResponse v1_get_metrics(x_morph_session_token)
+
+
+
+Scrape system metrics.
+
+### Example
+
+
+```python
+import openapi_client
+from openapi_client.models.get_metrics_response import GetMetricsResponse
+from openapi_client.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to /api
+# See configuration.py for a list of all supported configuration parameters.
+configuration = openapi_client.Configuration(
+    host = "/api"
+)
+
+
+# Enter a context with an instance of the API client
+with openapi_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = openapi_client.DefaultApi(api_client)
+    x_morph_session_token = 'x_morph_session_token_example' # str | Session token.
+
+    try:
+        api_response = api_instance.v1_get_metrics(x_morph_session_token)
+        print("The response of DefaultApi->v1_get_metrics:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling DefaultApi->v1_get_metrics: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **x_morph_session_token** | **str**| Session token. | 
+
+### Return type
+
+[**GetMetricsResponse**](GetMetricsResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+**403** | Insufficient rights to execute request. |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **v1_get_user**
+> V1GetUserResponse v1_get_user(user)
+
+
+
+Get user meta.
+
+### Example
+
+
+```python
+import openapi_client
+from openapi_client.models.v1_get_user_response import V1GetUserResponse
+from openapi_client.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to /api
+# See configuration.py for a list of all supported configuration parameters.
+configuration = openapi_client.Configuration(
+    host = "/api"
+)
+
+
+# Enter a context with an instance of the API client
+with openapi_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = openapi_client.DefaultApi(api_client)
+    user = 'mike, admin or any users name.' # str | User name.
+
+    try:
+        api_response = api_instance.v1_get_user(user)
+        print("The response of DefaultApi->v1_get_user:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling DefaultApi->v1_get_user: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **user** | **str**| User name. | 
+
+### Return type
+
+[**V1GetUserResponse**](V1GetUserResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | User found. |  -  |
+**400** | User name is empty. |  -  |
+**404** | User not found. |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **v1_get_user_list**
+> GetUserListResponse v1_get_user_list(x_morph_session_token)
+
+
+
+Get user list.
+
+### Example
+
+
+```python
+import openapi_client
+from openapi_client.models.get_user_list_response import GetUserListResponse
+from openapi_client.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to /api
+# See configuration.py for a list of all supported configuration parameters.
+configuration = openapi_client.Configuration(
+    host = "/api"
+)
+
+
+# Enter a context with an instance of the API client
+with openapi_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = openapi_client.DefaultApi(api_client)
+    x_morph_session_token = 'x_morph_session_token_example' # str | Session token.
+
+    try:
+        api_response = api_instance.v1_get_user_list(x_morph_session_token)
+        print("The response of DefaultApi->v1_get_user_list:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling DefaultApi->v1_get_user_list: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **x_morph_session_token** | **str**| Session token. | 
+
+### Return type
+
+[**GetUserListResponse**](GetUserListResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Full list of users in system. |  -  |
+**403** | Insufficient rights to execute request. |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **v1_initial_registration**
+> v1_initial_registration(v1_initial_registration_request=v1_initial_registration_request)
+
+
+
+Register the first administrator account in the system.
+
+### Example
+
+
+```python
+import openapi_client
+from openapi_client.models.v1_initial_registration_request import V1InitialRegistrationRequest
+from openapi_client.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to /api
+# See configuration.py for a list of all supported configuration parameters.
+configuration = openapi_client.Configuration(
+    host = "/api"
+)
+
+
+# Enter a context with an instance of the API client
+with openapi_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = openapi_client.DefaultApi(api_client)
+    v1_initial_registration_request = openapi_client.V1InitialRegistrationRequest() # V1InitialRegistrationRequest |  (optional)
+
+    try:
+        api_instance.v1_initial_registration(v1_initial_registration_request=v1_initial_registration_request)
+    except Exception as e:
+        print("Exception when calling DefaultApi->v1_initial_registration: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **v1_initial_registration_request** | [**V1InitialRegistrationRequest**](V1InitialRegistrationRequest.md)|  | [optional] 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: Not defined
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**201** | Registration completed. |  -  |
+**400** | Passed data is invalid. |  -  |
+**403** | Already registered. |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **v1_list_buckets**
+> ListBucketsResponse v1_list_buckets(x_morph_session_token)
+
+
+
+List all user's buckets.
+
+### Example
+
+
+```python
+import openapi_client
+from openapi_client.models.list_buckets_response import ListBucketsResponse
+from openapi_client.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to /api
+# See configuration.py for a list of all supported configuration parameters.
+configuration = openapi_client.Configuration(
+    host = "/api"
+)
+
+
+# Enter a context with an instance of the API client
+with openapi_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = openapi_client.DefaultApi(api_client)
+    x_morph_session_token = 'x_morph_session_token_example' # str | Session token.
+
+    try:
+        api_response = api_instance.v1_list_buckets(x_morph_session_token)
+        print("The response of DefaultApi->v1_list_buckets:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling DefaultApi->v1_list_buckets: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **x_morph_session_token** | **str**| Session token. | 
+
+### Return type
+
+[**ListBucketsResponse**](ListBucketsResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+**400** | Session token is omitted or invalid. |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **v1_list_objects**
+> ListObjectsResponse v1_list_objects(bucket, x_morph_session_token)
+
+
+
+List all objects in the bucket with brief metadata.
+
+### Example
+
+
+```python
+import openapi_client
+from openapi_client.models.list_objects_response import ListObjectsResponse
+from openapi_client.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to /api
+# See configuration.py for a list of all supported configuration parameters.
+configuration = openapi_client.Configuration(
+    host = "/api"
+)
+
+
+# Enter a context with an instance of the API client
+with openapi_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = openapi_client.DefaultApi(api_client)
+    bucket = 'bucket_example' # str | Bucket name.
+    x_morph_session_token = 'x_morph_session_token_example' # str | Session token.
+
+    try:
+        api_response = api_instance.v1_list_objects(bucket, x_morph_session_token)
+        print("The response of DefaultApi->v1_list_objects:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling DefaultApi->v1_list_objects: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **bucket** | **str**| Bucket name. | 
+ **x_morph_session_token** | **str**| Session token. | 
+
+### Return type
+
+[**ListObjectsResponse**](ListObjectsResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+**401** | Authentication token is invalid, missing or expired. |  -  |
+**403** | User is not authorized to make this action in the bucket |  -  |
+**404** | Bucket not found. |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **v1_login**
+> V1LoginResponse v1_login(v1_login_request=v1_login_request)
+
+
+
+Login via username and password.
+
+### Example
+
+
+```python
+import openapi_client
+from openapi_client.models.v1_login_request import V1LoginRequest
+from openapi_client.models.v1_login_response import V1LoginResponse
+from openapi_client.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to /api
+# See configuration.py for a list of all supported configuration parameters.
+configuration = openapi_client.Configuration(
+    host = "/api"
+)
+
+
+# Enter a context with an instance of the API client
+with openapi_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = openapi_client.DefaultApi(api_client)
+    v1_login_request = openapi_client.V1LoginRequest() # V1LoginRequest |  (optional)
+
+    try:
+        api_response = api_instance.v1_login(v1_login_request=v1_login_request)
+        print("The response of DefaultApi->v1_login:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling DefaultApi->v1_login: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **v1_login_request** | [**V1LoginRequest**](V1LoginRequest.md)|  | [optional] 
+
+### Return type
+
+[**V1LoginResponse**](V1LoginResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Ok. |  -  |
+**400** | Passed data is invalid. |  -  |
+**403** | User not found or wrong password. |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **v1_object_metadata**
+> ObjectMetadataResponse v1_object_metadata(bucket, object, x_morph_session_token)
+
+
+
+Get the object metadata.
+
+### Example
+
+
+```python
+import openapi_client
+from openapi_client.models.object_metadata_response import ObjectMetadataResponse
+from openapi_client.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to /api
+# See configuration.py for a list of all supported configuration parameters.
+configuration = openapi_client.Configuration(
+    host = "/api"
+)
+
+
+# Enter a context with an instance of the API client
+with openapi_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = openapi_client.DefaultApi(api_client)
+    bucket = 'bucket_example' # str | Bucket name.
+    object = 'object_example' # str | Object name.
+    x_morph_session_token = 'x_morph_session_token_example' # str | Session token.
+
+    try:
+        api_response = api_instance.v1_object_metadata(bucket, object, x_morph_session_token)
+        print("The response of DefaultApi->v1_object_metadata:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling DefaultApi->v1_object_metadata: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **bucket** | **str**| Bucket name. | 
+ **object** | **str**| Object name. | 
+ **x_morph_session_token** | **str**| Session token. | 
+
+### Return type
+
+[**ObjectMetadataResponse**](ObjectMetadataResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+**401** | Authentication token is invalid, missing or expired. |  -  |
+**403** | User is not authorized to make this action in the bucket |  -  |
+**404** | Bucket or object not found. |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **v1_register_user**
+> v1_register_user(x_morph_session_token, user, v1_register_user_request=v1_register_user_request)
+
+
+
+Register new user.
+
+### Example
+
+
+```python
+import openapi_client
+from openapi_client.models.v1_register_user_request import V1RegisterUserRequest
+from openapi_client.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to /api
+# See configuration.py for a list of all supported configuration parameters.
+configuration = openapi_client.Configuration(
+    host = "/api"
+)
+
+
+# Enter a context with an instance of the API client
+with openapi_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = openapi_client.DefaultApi(api_client)
+    x_morph_session_token = 'x_morph_session_token_example' # str | Session token.
+    user = 'mike, admin or any users name.' # str | User name.
+    v1_register_user_request = openapi_client.V1RegisterUserRequest() # V1RegisterUserRequest |  (optional)
+
+    try:
+        api_instance.v1_register_user(x_morph_session_token, user, v1_register_user_request=v1_register_user_request)
+    except Exception as e:
+        print("Exception when calling DefaultApi->v1_register_user: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **x_morph_session_token** | **str**| Session token. | 
+ **user** | **str**| User name. | 
+ **v1_register_user_request** | [**V1RegisterUserRequest**](V1RegisterUserRequest.md)|  | [optional] 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: Not defined
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**201** | User successfully registered. |  -  |
+**400** | Passed account data is invalid. |  -  |
+**403** | Insufficient rights to execute request. |  -  |
+**409** | User with this name already registered. |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **v1_s3_get_access_token**
+> S3GetAccessTokenResponse v1_s3_get_access_token(x_morph_session_token)
+
+
+
+Generate s3 access tokens.
+
+### Example
+
+
+```python
+import openapi_client
+from openapi_client.models.s3_get_access_token_response import S3GetAccessTokenResponse
+from openapi_client.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to /api
+# See configuration.py for a list of all supported configuration parameters.
+configuration = openapi_client.Configuration(
+    host = "/api"
+)
+
+
+# Enter a context with an instance of the API client
+with openapi_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = openapi_client.DefaultApi(api_client)
+    x_morph_session_token = 'x_morph_session_token_example' # str | Session token.
+
+    try:
+        api_response = api_instance.v1_s3_get_access_token(x_morph_session_token)
+        print("The response of DefaultApi->v1_s3_get_access_token:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling DefaultApi->v1_s3_get_access_token: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **x_morph_session_token** | **str**| Session token. | 
+
+### Return type
+
+[**S3GetAccessTokenResponse**](S3GetAccessTokenResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+**401** | Authentication token is invalid, missing or expired. |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **v1_set_default_storage_quota**
+> v1_set_default_storage_quota(x_morph_session_token, set_default_storage_quota_request=set_default_storage_quota_request)
+
+
+
+Set default storage quota for a new user.
+
+### Example
+
+
+```python
+import openapi_client
+from openapi_client.models.set_default_storage_quota_request import SetDefaultStorageQuotaRequest
+from openapi_client.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to /api
+# See configuration.py for a list of all supported configuration parameters.
+configuration = openapi_client.Configuration(
+    host = "/api"
+)
+
+
+# Enter a context with an instance of the API client
+with openapi_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = openapi_client.DefaultApi(api_client)
+    x_morph_session_token = 'x_morph_session_token_example' # str | Session token.
+    set_default_storage_quota_request = openapi_client.SetDefaultStorageQuotaRequest() # SetDefaultStorageQuotaRequest |  (optional)
+
+    try:
+        api_instance.v1_set_default_storage_quota(x_morph_session_token, set_default_storage_quota_request=set_default_storage_quota_request)
+    except Exception as e:
+        print("Exception when calling DefaultApi->v1_set_default_storage_quota: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **x_morph_session_token** | **str**| Session token. | 
+ **set_default_storage_quota_request** | [**SetDefaultStorageQuotaRequest**](SetDefaultStorageQuotaRequest.md)|  | [optional] 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: Not defined
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Quota changed. |  -  |
+**400** | Passed data is invalid. |  -  |
+**403** | Insufficient rights to execute request. |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **v1_set_eacl**
+> v1_set_eacl(bucket, x_morph_session_token, set_eacl_request=set_eacl_request)
+
+
+
+Set EACL to the bucket.
+
+### Example
+
+
+```python
+import openapi_client
+from openapi_client.models.set_eacl_request import SetEaclRequest
+from openapi_client.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to /api
+# See configuration.py for a list of all supported configuration parameters.
+configuration = openapi_client.Configuration(
+    host = "/api"
+)
+
+
+# Enter a context with an instance of the API client
+with openapi_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = openapi_client.DefaultApi(api_client)
+    bucket = 'bucket_example' # str | Bucket name.
+    x_morph_session_token = 'x_morph_session_token_example' # str | Session token.
+    set_eacl_request = openapi_client.SetEaclRequest() # SetEaclRequest | Parameters of the new EACL in JSON. Required only for payload generation request. (optional)
+
+    try:
+        api_instance.v1_set_eacl(bucket, x_morph_session_token, set_eacl_request=set_eacl_request)
+    except Exception as e:
+        print("Exception when calling DefaultApi->v1_set_eacl: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **bucket** | **str**| Bucket name. | 
+ **x_morph_session_token** | **str**| Session token. | 
+ **set_eacl_request** | [**SetEaclRequest**](SetEaclRequest.md)| Parameters of the new EACL in JSON. Required only for payload generation request. | [optional] 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: Not defined
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | EACL successfully put. |  -  |
+**400** | At least one bucket parameter is invalid (e.g. required parameter is missing). |  -  |
+**404** | Bucket not found. |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **v1_set_user_storage_quota**
+> v1_set_user_storage_quota(x_morph_session_token, user, user_change_storage_quota_request=user_change_storage_quota_request)
+
+
+
+Change user storage quota.
+
+### Example
+
+
+```python
+import openapi_client
+from openapi_client.models.user_change_storage_quota_request import UserChangeStorageQuotaRequest
+from openapi_client.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to /api
+# See configuration.py for a list of all supported configuration parameters.
+configuration = openapi_client.Configuration(
+    host = "/api"
+)
+
+
+# Enter a context with an instance of the API client
+with openapi_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = openapi_client.DefaultApi(api_client)
+    x_morph_session_token = 'x_morph_session_token_example' # str | Session token.
+    user = 'mike, admin or any users name.' # str | User name.
+    user_change_storage_quota_request = openapi_client.UserChangeStorageQuotaRequest() # UserChangeStorageQuotaRequest |  (optional)
+
+    try:
+        api_instance.v1_set_user_storage_quota(x_morph_session_token, user, user_change_storage_quota_request=user_change_storage_quota_request)
+    except Exception as e:
+        print("Exception when calling DefaultApi->v1_set_user_storage_quota: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **x_morph_session_token** | **str**| Session token. | 
+ **user** | **str**| User name. | 
+ **user_change_storage_quota_request** | [**UserChangeStorageQuotaRequest**](UserChangeStorageQuotaRequest.md)|  | [optional] 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: Not defined
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**201** | User quota successfully changed. |  -  |
+**400** | Passed data is invalid. |  -  |
+**403** | Insufficient rights to execute request. |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **v1_update_user**
+> v1_update_user(x_morph_session_token, user, v1_update_user_request=v1_update_user_request)
+
+
+
+Update existing user.
+
+### Example
+
+
+```python
+import openapi_client
+from openapi_client.models.v1_update_user_request import V1UpdateUserRequest
+from openapi_client.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to /api
+# See configuration.py for a list of all supported configuration parameters.
+configuration = openapi_client.Configuration(
+    host = "/api"
+)
+
+
+# Enter a context with an instance of the API client
+with openapi_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = openapi_client.DefaultApi(api_client)
+    x_morph_session_token = 'x_morph_session_token_example' # str | Session token.
+    user = 'mike, admin or any users name.' # str | User name.
+    v1_update_user_request = openapi_client.V1UpdateUserRequest() # V1UpdateUserRequest |  (optional)
+
+    try:
+        api_instance.v1_update_user(x_morph_session_token, user, v1_update_user_request=v1_update_user_request)
+    except Exception as e:
+        print("Exception when calling DefaultApi->v1_update_user: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **x_morph_session_token** | **str**| Session token. | 
+ **user** | **str**| User name. | 
+ **v1_update_user_request** | [**V1UpdateUserRequest**](V1UpdateUserRequest.md)|  | [optional] 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: Not defined
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**201** | User successfully updated. |  -  |
+**400** | Passed account data is invalid. |  -  |
+**403** | Insufficient rights to execute request. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

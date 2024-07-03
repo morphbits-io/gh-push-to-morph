@@ -17,17 +17,13 @@ import pprint
 import re  # noqa: F401
 import json
 
-
+from pydantic import BaseModel, ConfigDict, Field, StrictInt
 from typing import Any, ClassVar, Dict, List
-from pydantic import BaseModel, StrictInt
-from pydantic import Field
 from openapi_client.models.placement_filter import PlacementFilter
 from openapi_client.models.replica import Replica
 from openapi_client.models.selector import Selector
-try:
-    from typing import Self
-except ImportError:
-    from typing_extensions import Self
+from typing import Optional, Set
+from typing_extensions import Self
 
 class PlacementPolicy(BaseModel):
     """
@@ -39,11 +35,11 @@ class PlacementPolicy(BaseModel):
     filters: List[PlacementFilter] = Field(description="List of named filters to reference in selectors.")
     __properties: ClassVar[List[str]] = ["replicas", "containerBackupFactor", "selectors", "filters"]
 
-    model_config = {
-        "populate_by_name": True,
-        "validate_assignment": True,
-        "protected_namespaces": (),
-    }
+    model_config = ConfigDict(
+        populate_by_name=True,
+        validate_assignment=True,
+        protected_namespaces=(),
+    )
 
 
     def to_str(self) -> str:
@@ -56,7 +52,7 @@ class PlacementPolicy(BaseModel):
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> Self:
+    def from_json(cls, json_str: str) -> Optional[Self]:
         """Create an instance of PlacementPolicy from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
@@ -70,10 +66,12 @@ class PlacementPolicy(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
+        excluded_fields: Set[str] = set([
+        ])
+
         _dict = self.model_dump(
             by_alias=True,
-            exclude={
-            },
+            exclude=excluded_fields,
             exclude_none=True,
         )
         # override the default output from pydantic by calling `to_dict()` of each item in replicas (list)
@@ -100,7 +98,7 @@ class PlacementPolicy(BaseModel):
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Dict) -> Self:
+    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
         """Create an instance of PlacementPolicy from a dict"""
         if obj is None:
             return None
@@ -109,10 +107,10 @@ class PlacementPolicy(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "replicas": [Replica.from_dict(_item) for _item in obj.get("replicas")] if obj.get("replicas") is not None else None,
+            "replicas": [Replica.from_dict(_item) for _item in obj["replicas"]] if obj.get("replicas") is not None else None,
             "containerBackupFactor": obj.get("containerBackupFactor"),
-            "selectors": [Selector.from_dict(_item) for _item in obj.get("selectors")] if obj.get("selectors") is not None else None,
-            "filters": [PlacementFilter.from_dict(_item) for _item in obj.get("filters")] if obj.get("filters") is not None else None
+            "selectors": [Selector.from_dict(_item) for _item in obj["selectors"]] if obj.get("selectors") is not None else None,
+            "filters": [PlacementFilter.from_dict(_item) for _item in obj["filters"]] if obj.get("filters") is not None else None
         })
         return _obj
 
