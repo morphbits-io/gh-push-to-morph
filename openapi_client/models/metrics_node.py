@@ -17,16 +17,12 @@ import pprint
 import re  # noqa: F401
 import json
 
-
+from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List
-from pydantic import BaseModel, StrictStr
-from pydantic import Field
 from typing_extensions import Annotated
 from openapi_client.models.metrics_drive import MetricsDrive
-try:
-    from typing import Self
-except ImportError:
-    from typing_extensions import Self
+from typing import Optional, Set
+from typing_extensions import Self
 
 class MetricsNode(BaseModel):
     """
@@ -37,11 +33,11 @@ class MetricsNode(BaseModel):
     drives: List[MetricsDrive] = Field(description="Listing of drives' metrics.")
     __properties: ClassVar[List[str]] = ["endpoint", "uptime", "drives"]
 
-    model_config = {
-        "populate_by_name": True,
-        "validate_assignment": True,
-        "protected_namespaces": (),
-    }
+    model_config = ConfigDict(
+        populate_by_name=True,
+        validate_assignment=True,
+        protected_namespaces=(),
+    )
 
 
     def to_str(self) -> str:
@@ -54,7 +50,7 @@ class MetricsNode(BaseModel):
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> Self:
+    def from_json(cls, json_str: str) -> Optional[Self]:
         """Create an instance of MetricsNode from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
@@ -68,10 +64,12 @@ class MetricsNode(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
+        excluded_fields: Set[str] = set([
+        ])
+
         _dict = self.model_dump(
             by_alias=True,
-            exclude={
-            },
+            exclude=excluded_fields,
             exclude_none=True,
         )
         # override the default output from pydantic by calling `to_dict()` of each item in drives (list)
@@ -84,7 +82,7 @@ class MetricsNode(BaseModel):
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Dict) -> Self:
+    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
         """Create an instance of MetricsNode from a dict"""
         if obj is None:
             return None
@@ -95,7 +93,7 @@ class MetricsNode(BaseModel):
         _obj = cls.model_validate({
             "endpoint": obj.get("endpoint"),
             "uptime": obj.get("uptime"),
-            "drives": [MetricsDrive.from_dict(_item) for _item in obj.get("drives")] if obj.get("drives") is not None else None
+            "drives": [MetricsDrive.from_dict(_item) for _item in obj["drives"]] if obj.get("drives") is not None else None
         })
         return _obj
 

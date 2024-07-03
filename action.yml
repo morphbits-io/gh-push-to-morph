@@ -48,12 +48,6 @@ runs:
       run: |
         echo "timestamp=$(date +%s)" >> $GITHUB_OUTPUT
 
-    - name: Fix OpenSSL ripemd160
-      id: openssl_fix
-      shell: bash
-      run: |    
-          sudo python "$GITHUB_ACTION_PATH/tools/openssl_config_fix.py"
-
     - name: Install Allure
       id: install_allure
       shell: bash
@@ -122,5 +116,5 @@ runs:
         source "$GITHUB_ACTION_PATH/venv/bin/activate" && MORPH_USER_PASSWORD=$MORPH_USER_PASSWORD python "$GITHUB_ACTION_PATH/push-to-morph.py" \
         --username "$MORPH_USER_NAME" --url "$MORPH_URL" --port "$MORPH_PORT" --bucket "$ALLURE_REPORT_BUCKET_NAME" \
         --lifetime "$LIFETIME" --report "$ALLURE_GENERATED_DIR/$REPORT_NAME"
-        echo "See report: $MORPH_URL:$MORPH_PORT/api/v0.8/buckets/$ALLURE_REPORT_BUCKET_NAME/objects/$REPORT_NAME/download"
-        echo "allure_report_url=$MORPH_URL:$MORPH_PORT/api/v0.8/buckets/$ALLURE_REPORT_BUCKET_NAME/objects/$REPORT_NAME/download" >> $GITHUB_OUTPUT
+        echo "See report: $MORPH_URL:$MORPH_PORT/api/v1/buckets/$ALLURE_REPORT_BUCKET_NAME/objects/$REPORT_NAME"
+        echo "allure_report_url=$MORPH_URL:$MORPH_PORT/api/v1/buckets/$ALLURE_REPORT_BUCKET_NAME/objects/$REPORT_NAME" >> $GITHUB_OUTPUT

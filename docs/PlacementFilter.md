@@ -21,12 +21,12 @@ json = "{}"
 # create an instance of PlacementFilter from a JSON string
 placement_filter_instance = PlacementFilter.from_json(json)
 # print the JSON string representation of the object
-print PlacementFilter.to_json()
+print(PlacementFilter.to_json())
 
 # convert the object into a dict
 placement_filter_dict = placement_filter_instance.to_dict()
 # create an instance of PlacementFilter from a dict
-placement_filter_form_dict = placement_filter.from_dict(placement_filter_dict)
+placement_filter_from_dict = PlacementFilter.from_dict(placement_filter_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

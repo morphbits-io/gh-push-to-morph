@@ -10,7 +10,7 @@ managing test data, and the seamless
 integration of these technologies through GitHub Actions.
 
 The published Allure report will be accessible through a static HTTP link, allowing for easy sharing and review in a web browser:
-http://example.com:443/api/v0.8/buckets/tstbucket/objects/my-report.html/download
+http://example.com:443/api/v1/buckets/tstbucket/objects/my-report.html
 
 
 ## Supported platforms
@@ -81,7 +81,7 @@ We recommend setting a reasonable and convenient expiration period, for example,
 
 | Key                 | Value                                                                                              |
 |---------------------|----------------------------------------------------------------------------------------------------|
-| `ALLURE_REPORT_URL` | Output example: http://example.com:443/api/v0.8/buckets/tstbucket/objects/my-report.html/download |
+| `ALLURE_REPORT_URL` | Output example: http://example.com:443/api/v1/buckets/tstbucket/objects/my-report.html |
 
 # Dependencies
 

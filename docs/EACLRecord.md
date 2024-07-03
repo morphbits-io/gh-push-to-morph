@@ -20,12 +20,12 @@ json = "{}"
 # create an instance of EACLRecord from a JSON string
 eacl_record_instance = EACLRecord.from_json(json)
 # print the JSON string representation of the object
-print EACLRecord.to_json()
+print(EACLRecord.to_json())
 
 # convert the object into a dict
 eacl_record_dict = eacl_record_instance.to_dict()
 # create an instance of EACLRecord from a dict
-eacl_record_form_dict = eacl_record.from_dict(eacl_record_dict)
+eacl_record_from_dict = EACLRecord.from_dict(eacl_record_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

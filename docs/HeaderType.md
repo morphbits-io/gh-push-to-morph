@@ -1,10 +1,13 @@
 # HeaderType
 
 
-## Properties
+## Enum
 
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
+* `REQUEST` (value: `'REQUEST'`)
+
+* `OBJECT` (value: `'OBJECT'`)
+
+* `SERVICE` (value: `'SERVICE'`)
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

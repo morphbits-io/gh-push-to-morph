@@ -18,17 +18,14 @@ import re  # noqa: F401
 import json
 
 from datetime import datetime
+from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List
-from pydantic import BaseModel, StrictInt, StrictStr
-from pydantic import Field
 from typing_extensions import Annotated
 from openapi_client.models.basic_acl import BasicACL
 from openapi_client.models.eacl import EACL
 from openapi_client.models.placement_policy import PlacementPolicy
-try:
-    from typing import Self
-except ImportError:
-    from typing_extensions import Self
+from typing import Optional, Set
+from typing_extensions import Self
 
 class GetBucketResponse(BaseModel):
     """
@@ -39,15 +36,15 @@ class GetBucketResponse(BaseModel):
     basic_acl: BasicACL = Field(alias="basicACL")
     e_acl: EACL = Field(alias="eACL")
     placement_policy: PlacementPolicy = Field(alias="placementPolicy")
-    owner: StrictStr = Field(description="Address of bucket owner in base58.")
-    size: StrictInt = Field(description="Bucket used space in bytes.")
-    __properties: ClassVar[List[str]] = ["creationDate", "name", "basicACL", "eACL", "placementPolicy", "owner", "size"]
+    owner: StrictStr = Field(description="User that owns this bucket.")
+    used_space: StrictInt = Field(description="Bucket used space in bytes.", alias="usedSpace")
+    __properties: ClassVar[List[str]] = ["creationDate", "name", "basicACL", "eACL", "placementPolicy", "owner", "usedSpace"]
 
-    model_config = {
-        "populate_by_name": True,
-        "validate_assignment": True,
-        "protected_namespaces": (),
-    }
+    model_config = ConfigDict(
+        populate_by_name=True,
+        validate_assignment=True,
+        protected_namespaces=(),
+    )
 
 
     def to_str(self) -> str:
@@ -60,7 +57,7 @@ class GetBucketResponse(BaseModel):
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> Self:
+    def from_json(cls, json_str: str) -> Optional[Self]:
         """Create an instance of GetBucketResponse from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
@@ -74,10 +71,12 @@ class GetBucketResponse(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
+        excluded_fields: Set[str] = set([
+        ])
+
         _dict = self.model_dump(
             by_alias=True,
-            exclude={
-            },
+            exclude=excluded_fields,
             exclude_none=True,
         )
         # override the default output from pydantic by calling `to_dict()` of basic_acl
@@ -92,7 +91,7 @@ class GetBucketResponse(BaseModel):
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Dict) -> Self:
+    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
         """Create an instance of GetBucketResponse from a dict"""
         if obj is None:
             return None
@@ -103,11 +102,11 @@ class GetBucketResponse(BaseModel):
         _obj = cls.model_validate({
             "creationDate": obj.get("creationDate"),
             "name": obj.get("name"),
-            "basicACL": BasicACL.from_dict(obj.get("basicACL")) if obj.get("basicACL") is not None else None,
-            "eACL": EACL.from_dict(obj.get("eACL")) if obj.get("eACL") is not None else None,
-            "placementPolicy": PlacementPolicy.from_dict(obj.get("placementPolicy")) if obj.get("placementPolicy") is not None else None,
+            "basicACL": BasicACL.from_dict(obj["basicACL"]) if obj.get("basicACL") is not None else None,
+            "eACL": EACL.from_dict(obj["eACL"]) if obj.get("eACL") is not None else None,
+            "placementPolicy": PlacementPolicy.from_dict(obj["placementPolicy"]) if obj.get("placementPolicy") is not None else None,
             "owner": obj.get("owner"),
-            "size": obj.get("size")
+            "usedSpace": obj.get("usedSpace")
         })
         return _obj
 

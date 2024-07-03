@@ -17,12 +17,12 @@ json = "{}"
 # create an instance of SetEaclRequest from a JSON string
 set_eacl_request_instance = SetEaclRequest.from_json(json)
 # print the JSON string representation of the object
-print SetEaclRequest.to_json()
+print(SetEaclRequest.to_json())
 
 # convert the object into a dict
 set_eacl_request_dict = set_eacl_request_instance.to_dict()
 # create an instance of SetEaclRequest from a dict
-set_eacl_request_form_dict = set_eacl_request.from_dict(set_eacl_request_dict)
+set_eacl_request_from_dict = SetEaclRequest.from_dict(set_eacl_request_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
