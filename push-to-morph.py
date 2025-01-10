@@ -80,7 +80,13 @@ def main():
         ).to_dict()
 
         try:
-            api_instance.v1_create_object(bucket, login_response["token"], object_name, data, lifetime)
+            api_instance.v1_create_object(
+                bucket, 
+                object_name, 
+                data, 
+                lifetime=lifetime, 
+                _headers={"Authorization": f"Bearer {login_response['token']}"}
+            )
             logging.info("Object created successfully.")
         except Exception as e:
             logging.error(f"Error creating object in Morph storage: {e}")
