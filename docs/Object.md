@@ -6,6 +6,7 @@ Object descriptor.
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**oid** | **str** | Object id. | 
 **name** | **str** | Object name. | 
 **creation_date** | **datetime** | Creation date in RFC 3339 format. | 
 **size** | **int** | Data size. | 

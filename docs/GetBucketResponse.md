@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **name** | **str** | Bucket name. | 
 **basic_acl** | [**BasicACL**](BasicACL.md) |  | 
 **e_acl** | [**EACL**](EACL.md) |  | 
-**placement_policy** | [**PlacementPolicy**](PlacementPolicy.md) |  | 
+**placement_policy** | [**StoragePolicy**](StoragePolicy.md) |  | 
 **owner** | **str** | User that owns this bucket. | 
 **used_space** | **int** | Bucket used space in bytes. | 
 
