@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **buckets** | **List[str]** | Bucket names. | 
 **used_space** | **int** | Used space by user in bytes. | 
+**cursor** | **str** | ID that can be used to fetch subsequent elements (pass as cursor into request). If omitted or empty there are no more elements. | [optional] 
 
 ## Example
 

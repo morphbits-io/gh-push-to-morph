@@ -5,6 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**oid** | **str** | Object id. | 
 **creation_date** | **datetime** | Creation date in RFC 3339 format. | 
 **size** | **int** | Data size. | 
 **file_name** | **str** | Name of the associated file. | 

@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **name** | **str** | Bucket name. | 
 **basic_acl** | [**BasicACL**](BasicACL.md) |  | 
-**placement_policy** | [**PlacementPolicy**](PlacementPolicy.md) |  | 
+**placement_policy** | [**StoragePolicy**](StoragePolicy.md) |  | 
 
 ## Example
 
