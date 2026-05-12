@@ -28,9 +28,8 @@ jobs:
         id: gh_push_allure_report_to_morph
         uses: ./
         with:
-          MORPH_USER_NAME: ${{ secrets.MORPH_USER_NAME }}
-          MORPH_USER_PASSWORD: ${{ secrets.MORPH_USER_PASSWORD }}
-          ALLURE_REPORT_BUCKET_NAME: ${{ vars.ALLURE_REPORT_BUCKET_NAME }}
+          MORPH_TOKEN: 'Y5TJwXwvHBRmP11AmNZtBRdR5ka1fbTrC2nNUmn4QGP0EDXzrGYdT2rfwmJf9EPryFfPuXmarWpLG1M5yopx2Lja_ac98624f553405e7ddb8c2d4c546bf72158149d85471703eb99c2dceae971bc6'
+          ALLURE_REPORT_BUCKET_NAME: 'gh-push-to-morph-test'
           ALLURE_RESULTS_DIR: './tests/allure-report'
           LIFETIME: ${{ vars.LIFETIME }}
 
