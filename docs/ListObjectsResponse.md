@@ -6,6 +6,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **objects** | [**List[Object]**](Object.md) | Object descriptors. | 
+**cursor** | **str** | ID that can be used to fetch subsequent elements (pass as cursor into request). If omitted or empty there are no more elements. | [optional] 
 
 ## Example
 

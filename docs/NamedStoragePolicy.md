@@ -7,6 +7,8 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **policy** | [**StoragePolicy**](StoragePolicy.md) |  | 
 **name** | **str** | Policy name. Max combined length userName+policyName must be less or equal 62. | 
+**consistency** | [**MetadataConsistency**](MetadataConsistency.md) |  | [optional] 
+**default** | **bool** | The flag indicates if the policy is the default. | [optional] 
 
 ## Example
 

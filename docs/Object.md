@@ -7,7 +7,7 @@ Object descriptor.
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **oid** | **str** | Object id. | 
-**name** | **str** | Object name. | 
+**path** | **str** | Object file path. | 
 **creation_date** | **datetime** | Creation date in RFC 3339 format. | 
 **size** | **int** | Data size. | 
 **content_type** | **str** | Media type from https://www.iana.org/assignments/media-types/media-types.xhtml | [default to 'application/octet-stream']

@@ -1,15 +1,17 @@
 # StoragePolicy
 
-Set of rules to select a subset of nodes from `NetworkMap` able to store bucket's objects.
+Set of rules to select a subset of nodes from `NetworkMap` able to store bucket's objects. A policy must use either ecRules or replicas.
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**replicas** | [**List[Replica]**](Replica.md) | Rules to set number of object replicas and place each one into a named bucket. MUST NOT be empty. | 
+**replicas** | [**List[Replica]**](Replica.md) | Rules to set number of object replicas and place each one into a named bucket. | 
 **placement_factor** | **int** | Bucket placement factor defines the maximum number of storage nodes (replicas×factor) that will store bucket data. | 
 **selectors** | [**List[Selector]**](Selector.md) | Set of Selectors to form the bucket&#39;s nodes subset. | 
 **filters** | [**List[PlacementFilter]**](PlacementFilter.md) | List of named filters to reference in selectors. | 
+**ec_rules** | [**List[ECRule]**](ECRule.md) | List of erasure coding rules for the container. | [optional] 
+**initial_placement** | [**InitialPlacementPolicy**](InitialPlacementPolicy.md) |  | [optional] 
 
 ## Example
 

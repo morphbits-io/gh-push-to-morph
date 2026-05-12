@@ -5,8 +5,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**role** | [**List[Role]**](Role.md) | Target subject&#39;s role class. | 
-**keys** | **List[str]** | List of public keys to identify target subject. | 
+**role** | [**List[Role]**](Role.md) | Target subject&#39;s role class. Not required if accounts are set. | [optional] 
+**accounts** | **List[str]** | List of target accounts (from the same namespace as the bucket owner). Not required if the role is set. | [optional] 
 
 ## Example
 

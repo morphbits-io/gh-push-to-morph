@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **policy** | [**StoragePolicy**](StoragePolicy.md) |  | 
 **name** | **str** | Policy name. Max policyName length must be less or equal 42. | 
+**consistency** | [**MetadataConsistency**](MetadataConsistency.md) |  | [optional] 
 
 ## Example
 
