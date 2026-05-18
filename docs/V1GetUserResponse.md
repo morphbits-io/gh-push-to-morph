@@ -5,7 +5,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**storage_limit** | **int** | User&#39;s storage limit for all it&#39;s buckets in bytes. Zero value means unlimited. | 
+**storage_hard_quota** | **int** | User&#39;s storage hard quota for all their buckets, in bytes. A zero value means unlimited. | 
+**storage_soft_quota** | **int** | User&#39;s storage soft quota for all their buckets, in bytes. A zero value means unlimited. | 
 **role** | [**UserRole**](UserRole.md) |  | 
 
 ## Example

@@ -6,7 +6,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **str** | Token ID. | 
-**name** | **str** | User-defined token name | 
+**name** | **str** | User-defined token name. | 
 
 ## Example
 

@@ -6,8 +6,9 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **name** | **str** | Bucket name. | 
+**placement_policy_name** | **str** | Placement policy name. | 
 **basic_acl** | [**BasicACL**](BasicACL.md) |  | 
-**placement_policy** | [**StoragePolicy**](StoragePolicy.md) |  | 
+**lock_hours** | **int** | Optional parameter to set the period in hours during which the bucket cannot be deleted from the time of its creation. This period can be extended, but there is no way to make it expire earlier. | [optional] 
 
 ## Example
 

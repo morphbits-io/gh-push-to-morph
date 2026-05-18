@@ -26,12 +26,17 @@ This action was tested on the following runners:
 _The following sensitive information must be passed as
 [GitHub Actions secrets](https://docs.github.com/en/actions/security-guides/using-secrets-in-github-actions) to protect your data._
 
-**It is very important to use SECRETS and NOT variables, otherwise your username and password will be exposed to the Internet.**
+**It is very important to use SECRETS and NOT variables, otherwise your token will be exposed to the Internet.**
 
-| Key                   | Value                                     | Required | Default |
-|-----------------------|-------------------------------------------|----------|---------|
-| `MORPH_USER_NAME`     | Username for Morph object storage account | **Yes**  | N/A     |
-| `MORPH_USER_PASSWORD` | Password for Morph object storage account | **Yes**  | N/A     |
+| Key           | Value                                              | Required | Default |
+|---------------|----------------------------------------------------|----------|---------|
+| `MORPH_TOKEN` | Morph API token for the report bucket.             | **Yes**  | N/A     |
+
+Create this token **once**, out of band, from your Morph cluster, and store it as a GitHub secret.
+The action never receives your password — it only uses the token.
+
+In the Morph UI, open the **Tokens** tab, click **Create new API token**, then choose the bucket
+name, permissions, and any other options you need.
 
 Please keep sensitive data safe.
 
@@ -134,8 +139,7 @@ jobs:
         id: publish_to_morph_object_storage
         uses: morphbits-io/gh-push-to-morph@main
         with:
-          MORPH_USER_NAME: ${{ secrets.MORPH_USER_NAME }}
-          MORPH_USER_PASSWORD: ${{ secrets.MORPH_USER_PASSWORD }}
+          MORPH_TOKEN: ${{ secrets.MORPH_TOKEN }}
           MORPH_URL: ${{ vars.MORPH_URL }}
           ALLURE_REPORT_BUCKET_NAME: ${{ vars.ALLURE_REPORT_BUCKET_NAME }}
           ALLURE_GENERATED_DIR: ${{ vars.ALLURE_GENERATED_DIR }}
@@ -162,5 +166,10 @@ jobs:
 python3 -m venv venv
 source venv/bin/activate
 pip install -r requirements.txt
-MORPH_USER_PASSWORD=testuser python push-to-morph.py --url http://localhost --username testuser --bucket tstbucket --report /path_to_report/my-report.html
+
+# Provide a Morph Bearer token scoped to your bucket, then upload a report with it:
+MORPH_TOKEN=<bearer-token> python push-to-morph.py \
+  --url http://localhost \
+  --bucket tstbucket \
+  --report /path_to_report/my-report.html
 ```

@@ -12,6 +12,9 @@ Name | Type | Description | Notes
 **placement_policy** | [**StoragePolicy**](StoragePolicy.md) |  | 
 **owner** | **str** | User that owns this bucket. | 
 **used_space** | **int** | Bucket used space in bytes. | 
+**number_of_objects** | **int** | Number of objects in container. | 
+**metadata_consistency** | [**MetadataConsistency**](MetadataConsistency.md) |  | 
+**lock_until** | **datetime** | Date until which the bucket cannot be deleted in RFC 3339 format. Returned in UTC (with “Z”). If omitted or set to a time in the past, the bucket is not locked for deletion. | [optional] 
 
 ## Example
 

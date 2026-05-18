@@ -5,11 +5,8 @@ branding:
   icon: 'server'
   color: 'blue'
 inputs:
-  MORPH_USER_NAME:
-    description: Username for Morph object storage account
-    required: true
-  MORPH_USER_PASSWORD:
-    description: Password for Morph object storage account
+  MORPH_TOKEN:
+    description: Token to access Morph object storage
     required: true
   MORPH_URL:
     description: Morph object storage address
@@ -102,8 +99,7 @@ runs:
       shell: bash
       id: put_allure_report_to_morph_object_storage
       env:
-        MORPH_USER_NAME: ${{ inputs.MORPH_USER_NAME }}
-        MORPH_USER_PASSWORD: ${{ inputs.MORPH_USER_PASSWORD }}
+        MORPH_TOKEN: ${{ inputs.MORPH_TOKEN }}
         MORPH_URL: ${{ inputs.MORPH_URL }}
         MORPH_PORT: ${{ inputs.MORPH_PORT }}
         ALLURE_REPORT_BUCKET_NAME: ${{ inputs.ALLURE_REPORT_BUCKET_NAME }}
@@ -113,8 +109,8 @@ runs:
         ALLURE_GENERATED_DIR: ${{ inputs.ALLURE_GENERATED_DIR }}
         LIFETIME: ${{ inputs.LIFETIME }}
       run: |
-        source "$GITHUB_ACTION_PATH/venv/bin/activate" && MORPH_USER_PASSWORD=$MORPH_USER_PASSWORD python "$GITHUB_ACTION_PATH/push-to-morph.py" \
-        --username "$MORPH_USER_NAME" --url "$MORPH_URL" --port "$MORPH_PORT" --bucket "$ALLURE_REPORT_BUCKET_NAME" \
+        source "$GITHUB_ACTION_PATH/venv/bin/activate" && MORPH_TOKEN="$MORPH_TOKEN" python "$GITHUB_ACTION_PATH/push-to-morph.py" \
+        --url "$MORPH_URL" --port "$MORPH_PORT" --bucket "$ALLURE_REPORT_BUCKET_NAME" \
         --lifetime "$LIFETIME" --report "$ALLURE_GENERATED_DIR/$REPORT_NAME"
         echo "See report: $MORPH_URL:$MORPH_PORT/api/v1/buckets/$ALLURE_REPORT_BUCKET_NAME/objects/$REPORT_NAME"
         echo "allure_report_url=$MORPH_URL:$MORPH_PORT/api/v1/buckets/$ALLURE_REPORT_BUCKET_NAME/objects/$REPORT_NAME" >> $GITHUB_OUTPUT
